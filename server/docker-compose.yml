@@ -1,0 +1,35 @@
+# Liran's study site on the home server: its own compose project ("study"), separate from fin-briefing,
+# fin-linoy and their tunnels. Installed to ~/study/server/ by `setup.sh web`.
+#   study-web     Caddy, on 127.0.0.1:8097 only (8095 and 8096 belong to the finance sites)
+#   study-tunnel  its own Cloudflare Tunnel; only with the "tunnel" profile, started by `setup.sh tunnel`
+name: study
+
+services:
+  study-web:
+    image: caddy:2.10.0-alpine
+    container_name: study-web
+    restart: unless-stopped
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${HOME}/study/site:/srv/site:ro
+      - ${HOME}/study/cs:/srv/files:ro
+      - ${HOME}/study/secrets/web:/secrets:ro    # only site_auth: the other secrets never reach the web server
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "127.0.0.1:8097:80"
+
+  study-tunnel:
+    image: cloudflare/cloudflared:2026.7.1
+    container_name: study-tunnel
+    restart: unless-stopped
+    profiles: ["tunnel"]
+    command: ["tunnel", "--no-autoupdate", "run"]
+    env_file:                                    # TUNNEL_TOKEN=... (setup.sh tunnel)
+      - path: ${HOME}/study/secrets/cloudflared.env
+        required: false
+    depends_on: [study-web]
+
+volumes:
+  caddy_data:
+  caddy_config:

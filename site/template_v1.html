@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>הלימודים של לירן</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<style>
+/* "Morning", the light theme of the finance site: soft depth instead of borders, one hero per screen. The episode
+   is the hero of the home tab and follows as a mini player on the other tabs. */
+:root {
+  --bg: #eef2f8; --bg-2: #f8fafd; --card: #ffffff; --sunk: #f3f6fb; --line: #e6ebf3;
+  --ink: #0e1a33; --ink-2: #4a5a78; --ink-3: #8a97ad;
+  --accent: #2f62ff; --accent-2: #5b3df5; --accent-soft: #e7eeff; --on-accent: #ffffff;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #7c5cff; --s6: #64748b; --compare: #d5dce8;
+  --t1: #e3eefc; --t2: #fdeee6; --t3: #e2f6ee; --t4: #fdf3dc; --t5: #eeeaff;
+  --up: #0a8f5a; --up-soft: #e3f6ec; --down: #d6334a; --down-soft: #fde8eb; --warn: #a26f00; --warn-soft: #fff1d6;
+  --shadow: 0 1px 2px rgba(14,26,51,.04), 0 8px 24px rgba(14,26,51,.06);
+  --num: "Rubik", "Assistant", system-ui, sans-serif; --txt: "Assistant", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0f1c; --bg-2: #0e1526; --card: #121a2e; --sunk: #182240; --line: #222d47;
+    --ink: #eaf0fb; --ink-2: #aab6cd; --ink-3: #74819a;
+    --accent: #6d8dff; --accent-2: #8a6dff; --accent-soft: #1b2650; --on-accent: #0a0f1c;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #9b84ff; --s6: #8a97ad; --compare: #2c3a5c;
+    --t1: #16294a; --t2: #3a2118; --t3: #12302a; --t4: #34290f; --t5: #251f4a;
+    --up: #3fd394; --up-soft: #0f2c22; --down: #ff7a8a; --down-soft: #3a1820; --warn: #f5b942; --warn-soft: #332611;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a0f1c; --bg-2: #0e1526; --card: #121a2e; --sunk: #182240; --line: #222d47;
+  --ink: #eaf0fb; --ink-2: #aab6cd; --ink-3: #74819a;
+  --accent: #6d8dff; --accent-2: #8a6dff; --accent-soft: #1b2650; --on-accent: #0a0f1c;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #9b84ff; --s6: #8a97ad; --compare: #2c3a5c;
+  --t1: #16294a; --t2: #3a2118; --t3: #12302a; --t4: #34290f; --t5: #251f4a;
+  --up: #3fd394; --up-soft: #0f2c22; --down: #ff7a8a; --down-soft: #3a1820; --warn: #f5b942; --warn-soft: #332611;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--ink); font: 15px/1.5 var(--txt); background: linear-gradient(180deg, var(--bg-2), var(--bg) 480px) var(--bg); min-height: 100vh; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 40; background: var(--bg-2); }
+button, select, input { font: inherit; color: inherit; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 10px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* header + tabs */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in srgb, var(--bg-2) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.top-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px 10px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 18px var(--num); white-space: nowrap; min-width: 0; }
+.brand i { width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(140deg, var(--accent), var(--accent-2)); color: #fff; display: grid; place-items: center; font-style: normal; font-size: 15px; flex: none; }
+.brand small { display: block; font: 500 12px var(--txt); color: var(--ink-3); }
+.theme { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--card); box-shadow: var(--shadow); display: grid; place-items: center; cursor: pointer; color: var(--ink-2); flex: none; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 12px; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { border: 0; background: none; padding: 8px 15px; border-radius: 99px; color: var(--ink-2); font-weight: 600; cursor: pointer; white-space: nowrap; }
+.tab.dim { color: var(--ink-3); }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--card); }
+
+/* layout */
+main { padding-block: 6px 110px; }
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+.card { background: var(--card); border-radius: 22px; padding: 20px; box-shadow: var(--shadow); min-width: 0; grid-column: span 12; }
+@media (min-width: 900px) { .s4 { grid-column: span 4; } .s5 { grid-column: span 5; } .s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s8 { grid-column: span 8; } }
+@media (max-width: 480px) { .card { padding: 16px; border-radius: 18px; } .grid { gap: 14px; } }
+/* home: two independent stacks on a wide screen; on a phone the cards interleave by their order */
+.col { display: grid; gap: 18px; align-content: start; min-width: 0; grid-column: span 12; }
+@media (min-width: 900px) { .col.s7 { grid-column: span 7; } .col.s5 { grid-column: span 5; } .col.s6 { grid-column: span 6; } .col > .card { grid-column: auto; } }
+@media (max-width: 899px) { .col { display: contents; } }
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 12px; margin-bottom: 12px; flex-wrap: wrap; }
+h1 { font: 700 26px/1.2 var(--num); margin: 0; text-wrap: balance; }
+h2 { font: 600 17px/1.3 var(--num); margin: 0; text-wrap: balance; }
+h3 { font: 600 15px/1.35 var(--num); margin: 14px 0 6px; }
+.lbl { color: var(--ink-3); font-size: 13px; font-weight: 600; }
+.muted { color: var(--ink-3); font-size: 13px; }
+.big { font: 700 44px/1.05 var(--num); letter-spacing: -1px; }
+.mid { font: 700 28px/1.1 var(--num); letter-spacing: -.5px; }
+@media (max-width: 480px) { .big { font-size: 38px; } h1 { font-size: 22px; } }
+.up { color: var(--up); } .down { color: var(--down); } .warnc { color: var(--warn); }
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 3px 10px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+.pill.up { background: var(--up-soft); } .pill.down { background: var(--down-soft); } .pill.warn { background: var(--warn-soft); color: var(--warn); }
+.pill.soft { background: var(--sunk); color: var(--ink-2); font-weight: 600; }
+.pill.acc { background: var(--accent-soft); color: var(--accent); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.empty { color: var(--ink-3); padding: 6px 0; margin: 0; }
+.txt { white-space: pre-line; overflow-wrap: anywhere; font-size: 14px; color: var(--ink-2); }
+.clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.more-btn { border: 0; background: none; color: var(--accent); font-size: 13px; font-weight: 600; padding: 2px 0; cursor: pointer; }
+hr.sep { border: 0; border-top: 1px solid var(--line); margin: 16px 0 12px; }
+
+/* episode */
+.ep { background: linear-gradient(140deg, #2f62ff, #5b3df5 75%); color: #fff; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; }
+.ring { position: relative; width: 100px; height: 100px; flex: none; cursor: pointer; }
+.ring > svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.ring .play { position: absolute; inset: 13px; border-radius: 50%; border: 0; background: #fff; color: #2f62ff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 24px rgba(0,0,0,.2); transition: transform .12s; }
+.ring .play:active { transform: scale(.95); }
+.ep .t { font: 600 21px/1.25 var(--num); }
+.ep .m { opacity: .85; font-size: 14px; margin-top: 2px; }
+.ep .ctl { display: flex; align-items: center; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.ep .ctl button { background: rgba(255,255,255,.16); border: 0; color: #fff; border-radius: 99px; padding: 4px 11px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.ep .ctl button[aria-pressed="true"] { background: #fff; color: #2f62ff; }
+.ep .ctl .tag { background: rgba(255,255,255,.16); border-radius: 99px; padding: 3px 11px; font-size: 12px; font-weight: 600; }
+.ep .time { font: 500 13px var(--num); opacity: .9; direction: ltr; margin-inline-start: auto; }
+.ep.off .ring { cursor: default; }
+.ep.off .play { opacity: .7; cursor: default; box-shadow: none; }
+@media (max-width: 480px) { .ep { gap: 14px; } .ring { width: 84px; height: 84px; } .ring > svg { width: 84px; height: 84px; } .ring .play { inset: 11px; } .ep .t { font-size: 18px; } }
+.mini { position: fixed; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); width: min(560px, calc(100% - 28px)); z-index: 35;
+  background: linear-gradient(140deg, #2f62ff, #5b3df5 75%); color: #fff; border-radius: 18px; padding: 10px 14px; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; box-shadow: 0 16px 36px rgba(47,98,255,.35); }
+.mini[hidden] { display: none; }
+.mini button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: #fff; color: #2f62ff; display: grid; place-items: center; cursor: pointer; }
+.mini .bar { height: 4px; border-radius: 99px; background: rgba(255,255,255,.25); margin-top: 6px; direction: ltr; overflow: hidden; }
+.mini .bar i { display: block; height: 100%; background: #fff; width: 0; }
+
+/* rows */
+.rows { display: grid; }
+.row { display: grid; grid-template-columns: 42px minmax(0, 1fr) minmax(70px, auto); gap: 14px; align-items: center; padding: 12px 2px; border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: 0; }
+.row.nobadge { grid-template-columns: minmax(0, 1fr) minmax(70px, auto); }
+.badge { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; font: 700 13px var(--num); background: var(--sunk); color: var(--ink-2); }
+.row .n { font-weight: 700; overflow-wrap: anywhere; } .row .s { color: var(--ink-3); font-size: 13px; overflow-wrap: anywhere; }
+.row .v { font: 600 16px var(--num); text-align: left; white-space: nowrap; }
+.row .c { font-size: 12px; text-align: left; white-space: nowrap; color: var(--ink-3); margin-top: 2px; }
+.row.click { cursor: pointer; }
+.row.click:hover .n { color: var(--accent); }
+.row .more { grid-column: 1 / -1; display: none; padding: 6px 0 2px; }
+.row[aria-expanded="true"] .more { display: block; }
+.row .chev { display: inline-block; color: var(--ink-3); font-size: 11px; transition: transform .15s; margin-inline-start: 6px; }
+.row[aria-expanded="true"] .chev { transform: rotate(180deg); }
+.row.faded { opacity: .62; }
+@media (max-width: 480px) { .row { grid-template-columns: 36px minmax(0, 1fr) minmax(62px, auto); gap: 10px; } .badge { width: 36px; height: 36px; border-radius: 12px; font-size: 12px; } }
+
+/* items: news, status */
+.items { display: grid; gap: 10px; }
+.item { padding: 12px 14px; border-radius: 16px; background: var(--sunk); min-width: 0; }
+.item .h { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
+.item .h b { font-weight: 700; overflow-wrap: anywhere; }
+.item .meta { color: var(--ink-3); font-size: 12.5px; margin-top: 2px; }
+.item .txt { margin-top: 6px; }
+.two { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.chk { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.chk:last-child { border-bottom: 0; }
+.chk .ic { width: 20px; height: 20px; border-radius: 7px; display: grid; place-items: center; font-size: 12px; font-weight: 800; }
+.ic.ok { background: var(--up-soft); color: var(--up); } .ic.todo { background: var(--accent-soft); color: var(--accent); } .ic.miss { background: var(--sunk); color: var(--ink-3); }
+
+/* stats, bars, tables */
+.stats { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 14px; }
+.stat .v { font: 700 22px var(--num); } .stat .v.sm { font-size: 17px; font-weight: 600; }
+.stack { display: flex; height: 12px; border-radius: 99px; overflow: hidden; gap: 3px; margin: 6px 0 12px; }
+.stack i { display: block; min-width: 3px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
+.comp { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 4px 10px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.comp:last-child { border-bottom: 0; }
+.comp .w { font: 600 16px var(--num); }
+.comp .r { grid-column: 2 / -1; color: var(--ink-3); font-size: 13px; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+th { text-align: right; font-size: 12px; font-weight: 600; color: var(--ink-3); padding: 0 8px 8px; white-space: nowrap; }
+td { padding: 9px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+td.n, th.n { text-align: center; font-family: var(--num); font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.hl td { background: var(--accent-soft); }
+.calc { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: end; margin: 6px 0 14px; }
+.calc label { display: grid; gap: 4px; font-size: 13px; color: var(--ink-3); font-weight: 600; }
+.calc input, .calc select { width: 110px; border: 1px solid var(--line); background: var(--sunk); border-radius: 12px; padding: 8px 10px; font: 600 16px var(--num); }
+.calc .out { min-width: 150px; }
+.calc .out .big { font-size: 40px; }
+
+/* chips, details */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 0; border-radius: 99px; padding: 3px 11px; font-size: 13px; font-weight: 600; background: var(--sunk); color: var(--ink-2); cursor: default; }
+button.chip { cursor: pointer; }
+.chip.strong { background: var(--up-soft); color: var(--up); } .chip.ok { background: var(--accent-soft); color: var(--accent); }
+.chip.weak { background: var(--warn-soft); color: var(--warn); } .chip.sel { outline: 2px solid var(--ink-2); }
+a.chip { text-decoration: none; cursor: pointer; }
+a.chip:hover { text-decoration: none; box-shadow: 0 0 0 2px var(--accent); }
+.chip.unknown { background: var(--sunk); color: var(--ink-2); }
+
+/* the knowledge map */
+.search { width: 100%; border: 1px solid var(--line); background: var(--sunk); color: var(--ink); border-radius: 14px; padding: 12px 14px; font: 500 16px var(--txt); }
+.search:focus { outline: 2px solid var(--accent); outline-offset: 1px; background: var(--card); }
+.kml { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin-top: 12px; }
+.kmi { display: block; padding: 10px 12px; border-radius: 14px; background: var(--sunk); color: var(--ink); min-width: 0; }
+.kmi:hover { background: var(--accent-soft); text-decoration: none; }
+.kmi b { display: block; overflow-wrap: anywhere; }
+.kmi .en { display: block; color: var(--ink-3); font-size: 12.5px; direction: ltr; text-align: right; overflow-wrap: anywhere; }
+.kmi .meta { display: block; color: var(--ink-3); font-size: 12.5px; margin-top: 3px; }
+.kmes { display: grid; gap: 8px; }
+.kme { padding: 10px 12px; border-radius: 14px; background: var(--sunk); min-width: 0; }
+.kme .h { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.kme .arrow { color: var(--ink-3); font-weight: 400; margin: 0 4px; }
+.kme .chip { background: var(--card); }
+/* the tree a course stands on */
+.tree { display: grid; }
+.tree.sub { padding-inline-start: 14px; border-inline-start: 2px solid var(--line); margin-inline-start: 4px; }
+details.tnode > summary { align-items: center; font-weight: 600; }
+details.tnode > summary > span:first-child { flex: 1; min-width: 0; }
+.tn { display: grid; gap: 2px; min-width: 0; }
+.tn b { font-weight: 700; overflow-wrap: anywhere; }
+.tn .muted { font-weight: 500; font-size: 12.5px; }
+.track { display: block; height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden; margin-top: 4px; max-width: 360px; }
+.track i { display: block; height: 100%; border-radius: 99px; }
+.tis { display: grid; gap: 8px; }
+.ti { padding: 10px 12px; border-radius: 14px; background: var(--sunk); min-width: 0; border-inline-start: 3px solid transparent; }
+.ti.heavy { border-inline-start-color: var(--s3); background: color-mix(in srgb, var(--up-soft) 60%, var(--sunk)); }
+.ti .h { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.ti .txt { margin-top: 6px; color: var(--ink); }
+.ti .meta { color: var(--ink-3); font-size: 12.5px; margin-top: 4px; overflow-wrap: anywhere; }
+/* roots: chains of steps */
+.chains { display: grid; gap: 10px; }
+.chain { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px; padding: 8px 10px; border-radius: 14px; background: var(--sunk); }
+.chain .arr { color: var(--ink-3); font-size: 13px; }
+.step { display: inline-grid; padding: 5px 10px; border-radius: 12px; background: var(--card); color: var(--ink); line-height: 1.25; min-width: 0; }
+.step:hover { text-decoration: none; box-shadow: 0 0 0 2px var(--accent); }
+.step b { font-size: 13.5px; font-weight: 700; overflow-wrap: anywhere; }
+.step small { color: var(--ink-3); font-size: 11.5px; }
+.step.self { background: var(--accent); color: var(--on-accent); }
+.step.self small { color: var(--on-accent); opacity: .8; }
+.step.dim { opacity: .45; }
+.step.more { place-items: center; font-weight: 700; padding: 5px 12px; }
+.dp { padding-top: 6px; }
+.dp + .dp { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px; }
+.dp h3 { margin: 0 0 4px; }
+.cpath { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 0; font-weight: 700; }
+details.kme { border-bottom: 0; padding: 0 12px; }
+details.kme > summary { padding: 10px 0; align-items: center; }
+details.kme > .body { padding: 0 0 10px; }
+.hop + .hop { margin-top: 10px; }
+.hop .lbl { margin-bottom: 4px; }
+.seg { display: inline-flex; background: var(--sunk); border-radius: 99px; padding: 3px; flex-wrap: wrap; }
+.seg button { border: 0; background: none; padding: 5px 12px; border-radius: 99px; font-size: 13px; font-weight: 600; color: var(--ink-2); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(14,26,51,.12); }
+.ext { font: 700 10.5px var(--num); color: var(--ink-3); border: 1px solid var(--line); border-radius: 6px; padding: 0 4px; vertical-align: 1px; }
+.cgraph { display: block; width: 100%; overflow: visible; }
+.cgraph .gn rect { fill: var(--sunk); stroke: var(--line); }
+.cgraph .gn.pre rect { fill: var(--accent-soft); stroke: transparent; }
+.cgraph .gn.mid rect { fill: var(--accent); stroke: transparent; }
+.cgraph .gn text { fill: var(--ink); font: 600 12.5px var(--txt); }
+.cgraph .gn.mid text { fill: var(--on-accent); font-weight: 700; font-size: 13.5px; }
+.cgraph a.gn { cursor: pointer; }
+.cgraph a.gn:hover rect, .cgraph a.gn:focus rect { stroke: var(--accent); stroke-width: 2; }
+.cgraph .ge { stroke: var(--compare); stroke-width: 1.5; fill: none; }
+.cgraph .more { fill: var(--ink-3); font: 600 12px var(--txt); }
+.stmt { margin-top: 10px; padding: 12px 14px; border-radius: 14px; background: var(--sunk); font-size: 14px; }
+.stmt[hidden] { display: none; }
+details { border-bottom: 1px solid var(--line); }
+details:last-child { border-bottom: 0; }
+details > summary { list-style: none; cursor: pointer; padding: 11px 2px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-weight: 700; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary .chev { color: var(--ink-3); font-size: 11px; transition: transform .15s; flex: none; }
+details[open] > summary .chev { transform: rotate(180deg); }
+details > .body { padding: 0 2px 14px; }
+details.plain { border: 0; }
+details.plain > summary { font-weight: 600; color: var(--ink-3); font-size: 13px; padding: 8px 0 4px; justify-content: flex-start; }
+.mods { display: grid; gap: 2px; }
+.mod { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 5px 0; font-size: 14px; }
+.mod .k { font-size: 11.5px; font-weight: 700; color: var(--ink-3); background: var(--sunk); border-radius: 8px; padding: 1px 6px; text-align: center; }
+.mod.hidden { opacity: .55; }
+.mod .note { display: block; color: var(--ink-3); font-size: 13px; white-space: pre-line; }
+
+/* markdown (exam guide) */
+.md { font-size: 14.5px; overflow-wrap: anywhere; }
+.md h3 { font-size: 15.5px; margin: 18px 0 6px; } .md h4 { font: 600 14.5px var(--num); margin: 14px 0 4px; } .md h5, .md h6 { font-size: 14px; margin: 12px 0 4px; }
+.md p { margin: 6px 0; } .md ul, .md ol { margin: 6px 0; padding-inline-start: 22px; } .md li { margin: 3px 0; }
+.md code { font-size: 12.5px; background: var(--sunk); border-radius: 6px; padding: 1px 5px; direction: ltr; unicode-bidi: isolate; }
+.md table { font-size: 13.5px; }
+
+/* history: earlier offerings */
+.card.past { background: var(--sunk); box-shadow: none; border: 2px dashed var(--compare); }
+.card.past .item { background: var(--card); }
+.ribbon { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 14px; background: var(--warn-soft); color: var(--warn); font-size: 13.5px; font-weight: 600; margin-bottom: 14px; }
+.katex { font-size: 1.02em; }
+footer { color: var(--ink-3); font-size: 12px; text-align: center; padding-block: 0 24px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div class="brand"><i>ל</i><div>הלימודים של לירן<small id="updated"> </small></div></div>
+      <button class="theme" id="theme" aria-label="ערכת צבעים: אוטומטית" title="ערכת צבעים"></button>
+    </div>
+    <div class="tabs" role="tablist" aria-label="מסכים" id="tabs"></div>
+  </div>
+</header>
+<main class="wrap"><div id="view" class="grid"></div></main>
+<footer class="wrap" id="foot"></footer>
+<div class="mini" id="mini" hidden>
+  <button id="mini-pp" aria-label="נגן"></button>
+  <div><div style="font-weight:700;font-size:14px" id="mini-t">הפרק</div><div class="bar"><i id="mini-bar"></i></div></div>
+  <div style="font:500 12px var(--num);direction:ltr" id="mini-time">0:00</div>
+</div>
+<audio id="audio" preload="metadata"></audio>
+<script type="application/json" id="data">null</script>
+<script type="application/json" id="concepts">null</script>
+<script>
+'use strict';
+// ---------- formatting ----------
+// Every string from Moodle, the forums or the knowledge base goes through esc() (or textContent). Links only to http(s).
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const iso = (s) => '⁦' + s + '⁩';  // numbers inside Hebrew sit in a left-to-right isolate
+// Escapes like esc(), and puts every run of numbers, Latin letters and math signs ("0.6·38.8 + 0.2·S = 48") in a
+// left-to-right isolate, so a formula inside Hebrew keeps its order. Not for text with $...$ (KaTeX needs it whole).
+const MATH_RUN = /[0-9A-Za-zͰ-Ͽ][0-9A-Za-zͰ-Ͽ·.,+\-−–=⇒→≈∈≤≥<>*/^_|%\s]*[0-9A-Za-zͰ-Ͽ%]|[0-9A-Za-zͰ-Ͽ]/g;  // brackets stay outside, so they mirror
+const bidi = (s) => { s = String(s ?? ''); let out = '', last = 0; s.replace(MATH_RUN, (m, i) => { out += esc(s.slice(last, i)) + iso(esc(m)); last = i + m.length; return m; }); return out + esc(s.slice(last)); };
+const safeUrl = (u) => /^https?:\/\//i.test(String(u || '')) ? String(u) : null;
+const link = (u, html) => { const s = safeUrl(u); return s ? `<a href="${esc(s)}" target="_blank" rel="noopener noreferrer">${html}</a>` : html; };
+const toDate = (s) => s ? new Date(s.length === 10 ? s + 'T12:00:00' : s) : null;
+const dshort = (s) => s ? `${+s.slice(8, 10)}.${+s.slice(5, 7)}` : '';
+const dfull = (s) => s ? `${+s.slice(8, 10)}.${+s.slice(5, 7)}.${s.slice(0, 4)}` : '';
+const hm = (s) => s && s.length > 10 ? s.slice(11, 16) : '';
+const dlong = (s) => s ? toDate(s).toLocaleDateString('he-IL', { weekday: 'long', day: 'numeric', month: 'long' }) : '';
+const wday = (s) => s ? toDate(s).toLocaleDateString('he-IL', { weekday: 'short' }) : '';
+const when = (s) => s ? `${wday(s)} ${iso(dshort(s))}${hm(s) ? ' ' + iso(hm(s)) : ''}` : 'לא ידוע';
+const daysTxt = (n) => n == null ? 'לא ידוע' : n < 0 ? `לפני ${iso(-n)} ימים` : n === 0 ? 'היום' : n === 1 ? 'מחר' : n === 2 ? 'מחרתיים' : `עוד ${iso(n)} ימים`;
+const daysPill = (n, done) => `<span class="pill ${done ? 'up' : n == null ? 'soft' : n <= 1 ? 'down' : n <= 4 ? 'warn' : 'soft'}">${daysTxt(n)}</span>`;
+const num = (v) => v == null || v === '' ? '—' : iso(Number.isFinite(+v) ? String(Math.round(+v * 100) / 100) : esc(v));
+const pctW = (w) => iso(Math.round((w || 0) * 100) + '%');
+const initials = (s) => { const w = String(s || '').replace(/["'״׳.,()]/g, ' ').trim().split(/\s+/).filter(Boolean); return (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || '?').slice(0, 2)).toUpperCase(); };
+const fmtT = (s) => { s = Math.max(0, Math.round(s || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+const plural = (n, one, many) => n === 1 ? one : `${iso(n)} ${many}`;
+const ICON = {
+  play: (s = 26) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>`,
+  pause: (s = 24) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="4.5" height="14" rx="1.2"/></svg>`,
+  auto: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>`,
+  light: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>`,
+  dark: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>`,
+};
+const MODK = { resource: 'קובץ', folder: 'תיקייה', url: 'קישור', page: 'דף', label: 'הערה', assign: 'מטלה', quiz: 'בוחן', forum: 'פורום', videostream: 'הקלטה',
+  zoom: 'זום', choicegroup: 'בחירה', attendance: 'נוכחות', wooclap: 'סקר', book: 'ספר', lesson: 'שיעור', h5pactivity: 'תרגול' };
+const LEVEL = { strong: 'חזק', ok: 'בסדר', weak: 'חלש', unknown: 'לא ידוע' };
+const BASIS = { grade: 'לפי ציון', repeated_mistake: 'טעות שחזרה', feedback: 'לפי משוב הבודק', estimate: 'הערכה', unsolved: 'לא נפתר' };
+const SCOPE = { past: 'מניסיונות קודמים', mixed: 'כולל ניסיונות קודמים' };
+const TINTS = [['--t1', '--s1'], ['--t3', '--s3'], ['--t5', '--s5'], ['--t2', '--s2'], ['--t4', '--s4']];
+
+// ---------- state ----------
+const S = { tab: 'home', open: null, concept: null, q: '' };
+let D = null;
+const view = document.getElementById('view'), audio = document.getElementById('audio');
+const courseByKey = (k) => (D.courses || []).find((c) => c.key === k);
+const tint = (k) => { const i = Math.max(0, (D.courses || []).findIndex((c) => c.key === k)); return TINTS[i % TINTS.length]; };
+const badge = (k, name) => { const [t, s] = tint(k); return `<div class="badge" style="background:var(${t});color:var(${s})">${esc(initials(name))}</div>`; };
+
+// Cards go into the view, or into a column (two independent stacks on a wide screen). On a phone the columns
+// dissolve and every card is placed by the order it was created in, so create them in reading order.
+let HOST = null, SEQ = 0;
+function card(cls, html) {
+  const el = document.createElement('section'); el.className = `card ${cls}`; el.innerHTML = html; el.style.order = String(SEQ++);
+  (HOST || view).append(el);
+  return el;
+}
+function column(cls) { const el = document.createElement('div'); el.className = `col ${cls}`; el.style.order = String(SEQ++); view.append(el); return el; }
+function into(col, fn) { const prev = HOST; HOST = col; try { fn(); } finally { HOST = prev; } }
+function row({ badgeHtml = '', name, sub = '', value = '', change = '', cls = '', more = '', attrs = '' }) {
+  return `<div class="row ${badgeHtml ? '' : 'nobadge'} ${cls}" ${attrs}>${badgeHtml}<div style="min-width:0"><div class="n">${name}</div>${sub ? `<div class="s">${sub}</div>` : ''}</div>
+    <div><div class="v">${value}</div>${change ? `<div class="c">${change}</div>` : ''}</div>${more ? `<div class="more">${more}</div>` : ''}</div>`;
+}
+function table(head, rows, nums = []) {
+  return `<div class="scroll"><table><thead><tr>${head.map((h, i) => `<th class="${nums.includes(i) ? 'n' : ''}">${h}</th>`).join('')}</tr></thead><tbody>${
+    rows.map((r) => `<tr class="${r.cls || ''}">${(r.cells || r).map((c, i) => `<td class="${nums.includes(i) ? 'n' : ''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+// Long plain text (a forum post, a Moodle label): escaped, line breaks kept, clamped with a "show all" button.
+function longText(s, limit = 260) {
+  const t = String(s || ''); if (!t) return '';
+  return t.length > limit ? `<div class="txt clamp">${esc(t)}</div><button class="more-btn" data-more>הצג הכול</button>` : `<div class="txt">${esc(t)}</div>`;
+}
+function details(title, body, { open = false, side = '', cls = '' } = {}) {
+  return `<details class="${cls}" ${open ? 'open' : ''}><summary><span>${title}</span><span style="display:flex;gap:8px;align-items:baseline">${side}<span class="chev">▼</span></span></summary><div class="body">${body}</div></details>`;
+}
+function ring(frac, color, size = 100, stroke = 6, track = 'rgba(255,255,255,.25)') {
+  const r = (size - stroke) / 2, c = 2 * Math.PI * r, f = Math.max(0, Math.min(1, frac || 0));
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${track}" stroke-width="${stroke}"/>
+    <circle class="arc" cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${c * f} ${c}" data-c="${c}" ${f ? '' : 'opacity="0"'}/></svg>`;
+}
+
+// ---------- a small, safe markdown (the exam guide): escape first, then headings, lists, tables, bold, code ----------
+function mdInline(s) { return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); }
+function mdCells(l) { return l.trim().replace(/^\|/, '').replace(/\|$/, '').split(/(?<!\\)\|/).map((c) => c.trim().replace(/\\\|/g, '|')); }
+const LIST_RE = /^(\s*)([-*•]|\d+\.)\s+/;
+function mdList(lines, i) {
+  let html = ''; const stack = [];
+  while (i < lines.length) {
+    const l = lines[i];
+    if (!l.trim()) {
+      let j = i + 1; while (j < lines.length && !lines[j].trim()) j++;
+      if (j < lines.length && (LIST_RE.test(lines[j]) || /^\s{2,}\S/.test(lines[j]))) { i = j; continue; }
+      break;
+    }
+    const m = LIST_RE.exec(l);
+    if (m) {
+      const ind = m[1].length, tag = /\d/.test(m[2]) ? 'ol' : 'ul';
+      while (stack.length && stack[stack.length - 1].ind > ind) html += `</li></${stack.pop().tag}>`;
+      const top = stack[stack.length - 1];
+      if (!top || ind > top.ind) { html += `<${tag}>`; stack.push({ ind, tag }); }
+      else if (top.tag !== tag) { html += `</li></${stack.pop().tag}><${tag}>`; stack.push({ ind, tag }); }
+      else html += '</li>';
+      html += `<li>${mdInline(l.slice(m[0].length))}`; i++;
+    } else if (/^\s{2,}\S/.test(l)) { html += `<div>${mdInline(l.trim())}</div>`; i++; }
+    else break;
+  }
+  while (stack.length) html += `</li></${stack.pop().tag}>`;
+  return [html, i];
+}
+function md(src) {
+  const lines = String(src || '').replace(/\r/g, '').split('\n'); let out = '', i = 0;
+  while (i < lines.length) {
+    const l = lines[i]; let m;
+    if (!l.trim()) { i++; continue; }
+    if (/^\s*-{3,}\s*$/.test(l)) { out += '<hr class="sep">'; i++; continue; }
+    if ((m = /^(#{1,4})\s+(.*)$/.exec(l))) { const h = Math.min(6, m[1].length + 2); out += `<h${h}>${mdInline(m[2])}</h${h}>`; i++; continue; }
+    if (/^\s*\|/.test(l)) {
+      const rows = []; while (i < lines.length && /^\s*\|/.test(lines[i])) { rows.push(lines[i]); i++; }
+      const body = rows.filter((r, k) => !(k === 1 && /^[\s|:-]+$/.test(r))).map(mdCells);
+      out += `<div class="scroll"><table><thead><tr>${body[0].map((c) => `<th>${mdInline(c)}</th>`).join('')}</tr></thead><tbody>${
+        body.slice(1).map((r) => `<tr>${r.map((c) => `<td>${mdInline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+      continue;
+    }
+    if (LIST_RE.test(l)) { const [h, j] = mdList(lines, i); out += h; i = j; continue; }
+    const para = []; while (i < lines.length && lines[i].trim() && !/^(#{1,4}\s|\s*\||\s*-{3,}\s*$)/.test(lines[i]) && !LIST_RE.test(lines[i])) { para.push(lines[i].trim()); i++; }
+    out += `<p>${mdInline(para.join(' '))}</p>`;
+  }
+  return out;
+}
+function typeset(root) {  // KaTeX for $...$ in the knowledge-base text; nothing happens offline
+  if (!window.renderMathInElement) return;
+  root.querySelectorAll('.math').forEach((el) => { try { window.renderMathInElement(el, { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }], throwOnError: false, ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }); } catch (e) { /* leave the raw text */ } });
+}
+
+// ---------- boot ----------
+async function boot() {
+  try { D = JSON.parse(document.getElementById('data').textContent); } catch (e) { D = null; }
+  if (!D) { try { D = await (await fetch('data/site.json', { cache: 'no-store' })).json(); } catch (e) { D = null; } }
+  if (!D) { view.innerHTML = '<section class="card"><p class="empty">אין עדיין נתונים. צריך להריץ את build.py.</p></section>'; return; }
+  document.getElementById('updated').textContent = `${D.semester.label} · עודכן ${dshort(D.generated)} ${hm(D.generated)}`;
+  document.getElementById('foot').textContent = `נבנה ${dfull(D.generated)} ${hm(D.generated)} מהמודל, מהקטלוג ומבסיס הידע. אתר פרטי.`;
+  const tabs = [{ id: 'home', label: 'בית' }, { id: 'map', label: 'מפת ידע' }, ...D.courses.map((c) => ({ id: 'c:' + c.key, label: c.short, dim: !c.enrolled })), { id: 'archive', label: 'ארכיון' }];
+  const bar = document.getElementById('tabs');
+  bar.innerHTML = tabs.map((t) => `<button class="tab ${t.dim ? 'dim' : ''}" role="tab" data-tab="${esc(t.id)}">${esc(t.label)}</button>`).join('');
+  bar.querySelectorAll('.tab').forEach((b) => b.onclick = () => go(b.dataset.tab));
+  if (D.episode && D.episode.audio) audio.src = D.episode.audio;
+  window.addEventListener('hashchange', () => { readHash(); render(); });
+  readHash(); render();
+}
+function readHash() {
+  let h = ''; try { h = decodeURIComponent(location.hash.slice(1)); } catch (e) { h = ''; }
+  const i = h.indexOf(':'), t = i < 0 ? h : h.slice(0, i), k = i < 0 ? null : h.slice(i + 1);
+  S.concept = null; S.open = null;
+  if (t === 'c' && courseByKey(k)) S.tab = 'c:' + k;
+  else if (t === 'concept' && k) { S.tab = 'map'; S.concept = k; }
+  else if (t === 'archive' || t === 'map' || t === 'home') { S.tab = t; S.open = t === 'archive' ? k : null; }
+  else S.tab = 'home';
+}
+function go(tab, open = null) { const h = '#' + tab + (open ? ':' + open : ''); if (location.hash !== h) location.hash = h; else { readHash(); render(); } scrollTo({ top: 0 }); }
+function render() {
+  document.querySelectorAll('.tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
+  const active = document.querySelector('.tab[aria-selected="true"]'); if (active) active.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  view.innerHTML = ''; SEQ = 0; HOST = null;
+  if (S.tab === 'home') home();
+  else if (S.tab === 'archive') archive();
+  else if (S.tab === 'map') { knowledgeMap(); return; }  // async: wires and typesets itself
+  else course(courseByKey(S.tab.slice(2)));
+  wire(view); typeset(view); syncPlayer();
+}
+// an expandable row; a course tree inside it is drawn the first time it opens
+function setExpanded(r, open) {
+  r.setAttribute('aria-expanded', String(open));
+  if (open) r.querySelectorAll('.treebox[data-tree]').forEach((el) => { if (!el.dataset.done) { el.dataset.done = '1'; treeInto(el, el.dataset.tree); } });
+}
+// shared behaviour of rendered pieces: "show all" buttons, expandable rows, links to other tabs
+function wire(root) {
+  root.querySelectorAll('[data-more]').forEach((b) => b.onclick = () => { b.previousElementSibling.classList.remove('clamp'); b.remove(); });
+  root.querySelectorAll('.row[aria-expanded]').forEach((r) => r.onclick = (e) => { if (e.target.closest('a,button,.more')) return; setExpanded(r, r.getAttribute('aria-expanded') !== 'true'); });
+  root.querySelectorAll('[data-go]').forEach((el) => el.onclick = (e) => { if (e.target.closest('a')) return; e.preventDefault(); const [t, o] = el.dataset.go.split('|'); go(t, o || null); });
+}
+
+// ---------- theme ----------
+const THEMES = ['auto', 'light', 'dark'], THEME_NAMES = { auto: 'אוטומטית', light: 'בהירה', dark: 'כהה' };
+function setTheme(t) {
+  if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', t);
+  const b = document.getElementById('theme'); b.innerHTML = ICON[t]; b.setAttribute('aria-label', `ערכת צבעים: ${THEME_NAMES[t]}`); b.title = `ערכת צבעים: ${THEME_NAMES[t]}`; b.dataset.t = t;
+  try { localStorage.setItem('theme', t); } catch (e) { /* private window */ }
+}
+let savedTheme = 'auto'; try { savedTheme = localStorage.getItem('theme') || 'auto'; } catch (e) { /* none */ }
+setTheme(THEMES.includes(savedTheme) ? savedTheme : 'auto');
+document.getElementById('theme').onclick = (e) => setTheme(THEMES[(THEMES.indexOf(e.currentTarget.dataset.t) + 1) % 3]);
+
+// ---------- the episode ----------
+function episode(cls) {
+  const E = D.episode, title = `הפרק של ${esc(dlong(D.today))}`;
+  if (!E || !E.audio) {
+    card(`ep off ${cls}`, `<div class="ring">${ring(0, '#fff')}<button class="play" disabled aria-label="אין עדיין פרק">${ICON.play()}</button></div>
+      <div style="min-width:0"><div class="t">${title}</div><div class="m">הפרק הראשון יגיע עם הריצה הראשונה בשרת</div>
+        <div class="ctl"><span class="tag">פודקאסט בוקר קצר בעברית, לפני ההרצאות</span></div></div>`);
+    return;
+  }
+  const el = card(`ep ${cls}`, `<div class="ring" id="ep-ring" title="לחיצה על הטבעת קופצת למקום בפרק">${ring(0, '#fff')}<button class="play" id="pp" aria-label="נגן">${ICON.play()}</button></div>
+    <div style="min-width:0"><div class="t">${title}</div><div class="m">${E.minutes ? iso(Math.round(E.minutes)) + ' דקות · ' : ''}${esc(D.semester.label)}</div>
+      <div class="ctl">${[1, 1.25, 1.5, 2].map((r) => `<button data-r="${r}" aria-pressed="${audio.playbackRate === r}" aria-label="מהירות ${r}">${iso(r + '×')}</button>`).join('')}
+        <span class="time" id="ep-time"></span></div></div>`);
+  el.querySelector('#pp').onclick = (e) => { e.stopPropagation(); audio.paused ? audio.play() : audio.pause(); };
+  el.querySelectorAll('.ctl button').forEach((b) => b.onclick = () => { audio.playbackRate = +b.dataset.r; syncPlayer(); });
+  el.querySelector('#ep-ring').addEventListener('click', (e) => {  // the angle from the top is the position in the episode
+    if (!audio.duration) return;
+    const r = e.currentTarget.getBoundingClientRect(), a = Math.atan2(e.clientX - (r.left + r.width / 2), -(e.clientY - (r.top + r.height / 2)));
+    audio.currentTime = ((a + 2 * Math.PI) % (2 * Math.PI)) / (2 * Math.PI) * audio.duration; });
+}
+function syncPlayer() {
+  const f = audio.duration ? audio.currentTime / audio.duration : 0, playing = !audio.paused;
+  const arc = document.querySelector('#ep-ring .arc');
+  if (arc) { arc.setAttribute('stroke-dasharray', `${arc.dataset.c * f} ${arc.dataset.c}`); arc.setAttribute('opacity', f ? '1' : '0'); }
+  const pp = document.getElementById('pp'); if (pp) { pp.innerHTML = playing ? ICON.pause() : ICON.play(); pp.setAttribute('aria-label', playing ? 'השהה' : 'נגן'); }
+  document.querySelectorAll('.ep .ctl button').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.r === audio.playbackRate)));
+  const t = document.getElementById('ep-time'); if (t) t.textContent = `${fmtT(audio.currentTime)} / ${fmtT(audio.duration || 0)}`;
+  const mini = document.getElementById('mini');
+  mini.hidden = !D || S.tab === 'home' || !(playing || audio.currentTime > 0);
+  document.getElementById('mini-pp').innerHTML = playing ? ICON.pause(20) : ICON.play(20);
+  document.getElementById('mini-pp').setAttribute('aria-label', playing ? 'השהה' : 'נגן');
+  document.getElementById('mini-bar').style.width = (f * 100) + '%';
+  document.getElementById('mini-time').textContent = fmtT(audio.currentTime);
+  if (D) document.getElementById('mini-t').textContent = `הפרק של ${dshort(D.today)}`;
+}
+document.getElementById('mini-pp').onclick = () => (audio.paused ? audio.play() : audio.pause());
+['play', 'pause', 'timeupdate', 'loadedmetadata', 'ratechange', 'ended'].forEach((e) => audio.addEventListener(e, syncPlayer));
+
+// ---------- home ----------
+function home() {
+  const H = D.home, main = column('s7'), side = column('s5');
+  into(main, () => episode(''));
+  into(side, () => todayCard(''));
+  into(main, () => deadlinesCard(H, ''));
+  into(side, () => examsCard(H, ''));
+  into(main, () => mailCard(H, ''));
+  into(side, () => weekCard(H, ''));
+  into(main, () => newsCard(H, ''));
+  into(side, () => calendarCard(H, ''));
+  into(side, () => gradesCard(H, ''));
+  into(side, () => coursesCard(''));
+  into(main, () => filesCard(H, ''));
+  if ((D.missing || []).length) card('', `<div class="head"><h2>מה עוד חסר בנתונים</h2><span class="muted">מה שלא ידוע לא מוצג כאילו הוא ידוע</span></div>
+    <div class="chips">${D.missing.map((m) => `<span class="chip">${esc(m)}</span>`).join('')}</div>`);
+}
+function lessonRow(l) {
+  const place = [l.building, l.room ? 'חדר ' + l.room : ''].filter(Boolean).join(' · ') || l.location;
+  return row({ badgeHtml: l.course ? badge(l.course, l.course_name) : '', name: esc(l.course_name) + (l.type ? ` <span class="muted">${esc(l.type)}</span>` : ''),
+    attrs: l.course ? `data-go="c:${esc(l.course)}"` : '', cls: l.course ? 'click' : '',
+    sub: `${esc(place)}${l.mode ? ` · <span class="pill ${l.mode.includes('היבריד') ? 'acc' : 'soft'}">${esc(l.mode)}</span>` : ''}${(l.clash || []).length ? ` · <span class="pill warn">באותה שעה: ${esc(l.clash.join(', '))}</span>` : ''}`,
+    value: iso(l.start), change: iso(l.end) });
+}
+function lessonsToday() {
+  const S = D.home.schedule;
+  if (!S || !(S.lessons || []).length) return `<div class="item"><b>ההרצאות של היום</b><div class="txt" style="margin-top:4px">אין עדיין מערכת שעות מהפורטל.</div></div>`;
+  if (S.today_break) return `<div class="item"><b>אין לימודים היום</b><div class="txt">${esc(S.today_break)}</div></div>`;
+  if ((S.today || []).length) return `<div class="lbl" style="margin:0 0 4px">השיעורים של היום</div><div class="rows">${S.today.map(lessonRow).join('')}</div>`;
+  const n = S.next;
+  return `<div class="item"><b>אין שיעורים היום</b>${n ? `<div class="txt">הבא: ${esc(dlong(n.date))}, ${esc(n.lessons[0].course_name)} ב־${iso(n.lessons[0].start)}${n.lessons[0].room ? `, חדר ${iso(esc(n.lessons[0].room))}` : ''}</div>` : ''}</div>`;
+}
+function todayCard(cls) {
+  const due = D.home.today || [];
+  card(cls, `<div class="head"><h2>היום</h2><span class="muted">${esc(dlong(D.today))}</span></div>
+    ${lessonsToday()}
+    <div class="lbl" style="margin:14px 0 4px">נסגר היום</div>
+    ${due.length ? `<div class="rows">${due.map((d) => row({ badgeHtml: badge(d.course, d.course_name), name: link(d.url, esc(d.name)),
+      sub: `${esc(d.course_name)} · ${esc(d.kind)} · ${d.done ? '<span class="up">' + esc(d.status) + '</span>' : esc(d.status)}`, value: iso(hm(d.due) || '—'), change: 'בשעה' })).join('')}</div>`
+      : '<p class="empty">שום דבר לא נסגר היום</p>'}`);
+}
+function deadlineRow(d) {
+  const optional = d.counts === false;
+  return row({ badgeHtml: badge(d.course, d.course_name), name: link(d.url, esc(d.name)), cls: optional || d.done ? 'faded' : '',
+    sub: `${esc(d.course_name)} · ${esc(d.kind)} · ${d.done ? `<span class="up">${esc(d.status)}</span>` : esc(d.status)}${optional ? ' · <span class="pill soft">רשות, לא נספר בציון</span>' : ''}`,
+    value: when(d.due), change: daysPill(d.days_left, d.done) });
+}
+function deadlinesCard(H, cls) {
+  const L = H.deadlines || [];
+  card(cls, `<div class="head"><h2>הגשות קרובות</h2><span class="muted">עבודות ובחנים פתוחים במודל</span></div>
+    ${L.length ? `<div class="rows">${L.map(deadlineRow).join('')}</div>` : '<p class="empty">אין הגשות פתוחות</p>'}`);
+}
+function examsCard(H, cls) {
+  const L = H.exams || [];
+  card(cls, `<div class="head"><h2>מבחנים</h2><span class="muted">לפי סיכום הבחינות של BGU</span></div>
+    ${L.length ? `<div class="rows">${L.map((e) => row({ badgeHtml: badge(e.course, e.course_name), name: esc(e.type_official || e.type),
+      sub: `${esc(e.course_name)} · ${esc(dlong(e.date))}${e.time ? ' · ' + iso(e.time) : ''}`, value: `<span class="${e.days_left <= 14 ? 'warnc' : ''}">${iso(e.days_left)}</span>`, change: e.days_left === 1 ? 'יום' : 'ימים' })).join('')}</div>`
+      : '<p class="empty">לא ידועים מועדי מבחנים</p>'}`);
+}
+function weekCard(H, cls) {
+  const S = H.schedule;
+  if (!S || !(S.lessons || []).length) return;
+  const days = [...new Set(S.lessons.map((l) => l.day))];
+  card(cls, `<div class="head"><h2>מערכת שעות</h2><span class="muted">${esc(S.label || '')}${S.semester_end ? ` · עד ${iso(dshort(S.semester_end))}` : ''}</span></div>
+    ${days.map((d) => { const L = S.lessons.filter((l) => l.day === d);
+      return `<div class="lbl" style="margin:10px 0 4px">יום ${esc(L[0].day_name)}</div><div class="rows">${L.map(lessonRow).join('')}</div>`; }).join('')}
+    <p class="muted" style="margin:10px 0 0">מהפורטל${S.pulled ? `, עודכן ${iso(esc(S.pulled))}` : ''}</p>`);
+}
+function mailCard(H, cls) {
+  const M = H.mail;
+  if (!M) return;
+  const L = M.items || [], g = Object.entries(M.general || {});
+  card(cls, `<div class="head"><h2>מהמייל</h2><span class="muted">${iso(M.window_days)} הימים האחרונים: הודעות בקורסים, המודל ותשובות אליך</span></div>
+    ${L.length ? `<div class="items">${L.slice(0, 14).map((m) => `<div class="item"><div class="h"><b>${esc(m.subject)}</b><span class="muted">${when(m.date)}</span></div>
+      <div class="meta">${m.course_name ? esc(m.course_name) + ' · ' : ''}${esc(m.kind)} · ${esc(m.from)}</div>${longText(m.text, 220)}</div>`).join('')}</div>`
+      : '<p class="empty">אין מיילים חשובים</p>'}
+    ${g.length ? `<p class="muted" style="margin:8px 0 0">לא מוצגים: ${g.map(([k, n]) => `${esc(k)} ${iso(n)}`).join(' · ')}</p>` : ''}`);
+}
+function calendarCard(H, cls) {
+  const A = (H.schedule || {}).academic || [], E = (H.calendar || {}).events || [], M = H.mail_events || [];
+  if (!A.length && !E.length && !M.length) return;
+  card(cls, `<div class="head"><h2>בלוח השנה</h2><span class="muted">מה שהודיעו במייל, היומן שלך לשבוע הקרוב, וחופשות</span></div>
+    ${M.length ? `<div class="lbl" style="margin:0 0 4px">הודיעו במייל</div><div class="rows">${M.map((e) => row({ badgeHtml: e.course ? badge(e.course, e.course_name) : '',
+      name: `${esc(e.kind_he)}: ${esc(e.title)}`, cls: e.kind === 'cancel' ? 'faded' : '',
+      sub: [e.course_name ? esc(e.course_name) : '', e.room ? esc(e.room) : '', 'מ' + esc(e.sender)].filter(Boolean).join(' · '),
+      value: iso(dshort(e.date)), change: e.start ? iso(e.start) + (e.end ? '–' + iso(e.end) : '') : esc(wday(e.date)) })).join('')}</div>` : ''}
+    ${E.length ? `<div class="lbl" style="margin:${M.length ? '12px' : '0'} 0 4px">ביומן שלך</div><div class="rows">${E.map((e) => row({ name: esc(e.title), sub: [e.location ? esc(e.location) : '', esc(e.calendar || '')].filter(Boolean).join(' · '),
+      value: e.all_day ? iso(dshort(e.start)) : iso(hm(e.start)), change: esc(wday(e.start)) })).join('')}</div>` : ''}
+    ${A.length ? `<div class="lbl" style="margin:${E.length || M.length ? '12px' : '0'} 0 4px">לוח השנה האקדמי</div><div class="rows">${A.map((a) => row({ name: esc(a.name), cls: a.break ? '' : 'faded',
+      sub: `${esc(dlong(a.date))}${a.note ? ' · ' + esc(a.note) : ''}`, value: daysPill(a.days_left) })).join('')}</div>` : ''}`);
+}
+function newsItem(x, withCourse = true) {
+  return `<div class="item"><div class="h"><b>${esc(x.discussion)}</b><span class="muted">${when(x.time)}</span></div>
+    <div class="meta">${withCourse ? esc(x.course_name) + ' · ' : ''}${esc(x.forum)} · ${esc(x.author)}${x.reply ? ' · תגובה' : ''}</div>
+    ${(x.tags || []).length ? `<div class="pills">${x.tags.map((t) => `<span class="pill acc">${esc(t)}</span>`).join('')}</div>` : ''}
+    ${longText(x.text)}${(x.attachments || []).length ? `<div class="meta">קבצים מצורפים: ${x.attachments.map(esc).join(', ')}</div>` : ''}</div>`;
+}
+function newsCard(H, cls) {
+  const L = H.news || [], noFolders = D.courses.filter((c) => c.enrolled && c.moodle_id).every((c) => !c.forum.folder);
+  card(cls, `<div class="head"><h2>חדשות מהפורומים</h2><span class="muted">${iso(H.window_days)} הימים האחרונים, רק מה שהצוות פרסם</span></div>
+    ${L.length ? `<div class="items">${L.slice(0, 12).map((x) => newsItem(x)).join('')}</div>`
+      : `<p class="empty">${noFolders ? 'אין עדיין: הפורומים של הסמסטר הזה עוד לא ירדו מהמודל.' : 'אין הודעות חדשות.'}</p>`}`);
+}
+function gradesCard(H, cls) {
+  const L = H.grades || [];
+  card(cls, `<div class="head"><h2>ציונים שהגיעו</h2><span class="muted">${iso(H.window_days)} הימים האחרונים, מהמודל</span></div>
+    ${L.length ? `<div class="rows">${L.map((g) => row({ badgeHtml: badge(g.course, g.course_name), name: esc(g.item), sub: `${esc(g.course_name)} · ${when(g.graded_at)}`,
+      value: `${num(g.raw)}<span class="muted"> / ${num(g.max)}</span>`, change: g.percent && g.percent !== '-' ? iso(esc(g.percent.replace(/\s/g, ''))) : '' })).join('')}</div>`
+      : '<p class="empty">לא הגיעו ציונים חדשים</p>'}`);
+}
+function nextOf(c) {
+  const up = (c.left || []).filter((x) => x.days_left != null && x.days_left >= 0).sort((a, b) => a.days_left - b.days_left);
+  return up[0];
+}
+function coursesCard(cls) {
+  card(cls, `<div class="head"><h2>הקורסים של הסמסטר</h2><span class="muted">${esc(D.semester.label)}</span></div>
+    <div class="rows">${D.courses.map((c) => { const n = nextOf(c);
+      return row({ badgeHtml: badge(c.key, c.name), name: esc(c.name), cls: `click ${c.enrolled ? '' : 'faded'}`, attrs: `data-go="c:${esc(c.key)}"`,
+        sub: !c.enrolled ? esc(c.enrollment) : c.is_research ? 'מחקר, בלי ציון' : n ? `הבא: ${esc(n.text)}` : 'אין משהו פתוח',
+        value: n && c.enrolled ? daysPill(n.days_left) : '' }); }).join('')}</div>`);
+}
+function filesCard(H, cls) {
+  const L = H.files || [];
+  card(cls, `<div class="head"><h2>קבצים חדשים במודל</h2><span class="muted">${iso(H.window_days)} הימים האחרונים</span></div>
+    ${L.length ? `<div class="rows">${L.slice(0, 14).map((f) => row({ badgeHtml: badge(f.course, f.course_name), name: link(f.url, esc(f.name)),
+      sub: `${esc(f.course_name)} · ${esc(f.section)}${f.filename && f.filename !== f.name && f.filename !== 'index.html' ? ` · <span dir="auto">${esc(f.filename)}</span>` : ''}`,
+      value: iso(dshort(f.mtime)), change: esc(wday(f.mtime)) })).join('')}</div>${L.length > 14 ? `<p class="muted" style="margin:8px 0 0">ועוד ${iso(L.length - 14)} בלשוניות הקורסים</p>` : ''}`
+      : '<p class="empty">אין קבצים חדשים</p>'}`);
+}
+
+// ---------- a course ----------
+function course(c) {
+  if (!c) { card('', '<p class="empty">הקורס לא נמצא</p>'); return; }
+  headerCard(c);
+  if (c.grading && !c.is_research) gradingCard(c, c.grading.calc || c.grading.required_table ? 's6' : (c.enrolled ? 's6' : ''));
+  if (c.grading && (c.grading.calc || c.grading.required_table)) calcCard(c, 's6');
+  if (c.enrolled && !c.is_research) statusCard(c, c.grading && (c.grading.calc || c.grading.required_table) ? '' : 's6');
+  if (c.exam_guide) guideCard(c);
+  if (c.moodle) {
+    const a = column('s6'), b = column('s6');
+    into(a, () => assignmentsCard(c, ''));
+    into(b, () => forumCard(c, ''));
+    if ((c.moodle.quizzes || []).length) into(a, () => quizzesCard(c, ''));
+    into(a, () => recordingsCard(c, ''));
+    materialCard(c);
+  } else if ((c.local_files || []).length) localFilesCard(c);
+  topicsCard(c);
+  treeCard(c);
+  judgedCard(c);
+  relatedCard(c);
+  if (c.past) pastCard(c);
+}
+function headerCard(c) {
+  const m = c.moodle, n = nextOf(c), a = m ? m.assignments : [], q = m ? m.quizzes : [];
+  const nextExam = (c.exams || []).find((e) => e.status !== 'עבר' && e.days_left != null && e.days_left >= 0);
+  const pills = [!c.enrolled ? `<span class="pill warn">${esc(c.enrollment)}</span>` : c.is_research ? '<span class="pill soft">מחקר, בלי ציון</span>' : '<span class="pill acc">בתהליך</span>',
+    c.homework_counts === false ? '<span class="pill soft">עבודות הבית לא נכנסות לציון</span>' : ''].join('');
+  const meta = [esc(D.semester.label), c.number ? `מס׳ קורס ${iso(esc(c.number))}` : '', c.moodle_id ? `מודל ${iso(c.moodle_id)}` : 'לא במודל',
+    c.lecturer ? esc(c.lecturer) : '', c.credits ? `${iso(c.credits)} נק״ז` : ''].filter(Boolean).join(' · ');
+  card('', `<div class="head" style="margin-bottom:4px"><h1>${esc(c.name)}</h1><div class="pills" style="margin:0">${pills}</div></div>
+    <div class="muted">${meta}</div>
+    ${c.name_en ? `<div class="muted" dir="ltr" style="text-align:right">${esc(c.name_en)}</div>` : ''}
+    ${c.enrolled && !c.is_research ? `<div class="stats">
+      <div class="stat"><div class="lbl">הדבר הבא</div><div class="v sm">${n ? esc(n.text) : 'אין'}</div>${n ? `<div class="muted">${when(n.when)} · ${daysTxt(n.days_left)}</div>` : ''}</div>
+      <div class="stat"><div class="lbl">מבחן</div><div class="v sm">${nextExam ? `${esc(nextExam.type)} · ${iso(dshort(nextExam.date))}` : 'לא ידוע'}</div>${nextExam ? `<div class="muted">${daysTxt(nextExam.days_left)}</div>` : ''}</div>
+      ${m ? `<div class="stat"><div class="lbl">עבודות שהוגשו</div><div class="v sm">${iso(a.filter((x) => x.submitted).length)} מתוך ${iso(a.length)}</div>${c.homework_counts === false ? '<div class="muted">רשות</div>' : ''}</div>` : ''}
+      ${q.length ? `<div class="stat"><div class="lbl">בחנים במודל</div><div class="v sm">${iso(q.filter((x) => x.attempts).length)} מתוך ${iso(q.length)}</div></div>` : ''}
+      <div class="stat"><div class="lbl">ציון בגיליון</div><div class="v sm">${!c.sheet_grade || /^=+$/.test(c.sheet_grade) ? 'אין עדיין' : esc(c.sheet_grade)}</div></div>
+    </div>` : ''}
+    <div class="pills" style="margin-top:14px">${m ? `${link(m.url, '<span class="pill acc">דף הקורס במודל ↗</span>')}${m.zoom ? link(m.zoom, '<span class="pill soft">כניסה לשיעור בזום ↗</span>') : ''}<span class="pill soft">נמשך מהמודל ${iso(dshort(m.pulled_at))} ${iso(hm(m.pulled_at))}</span>` : ''}
+      ${(c.missing || []).map((x) => `<span class="pill soft">${esc(x)}</span>`).join('')}</div>`);
+}
+const COMP_COLORS = ['--s1', '--s5', '--s3', '--s4', '--s2', '--s6'];
+function gradingCard(c, cls) {
+  const g = c.grading, comps = (g.components || []), weighted = comps.filter((x) => x.weight > 0);
+  const calc = g.calc;
+  card(cls, `<div class="head"><h2>איך נקבע הציון</h2><span class="muted">${c.enrolled ? `רק מהסילבוס ומדף הקורס של ${esc(c.year)} ${esc(c.semester)}` : 'לפי הסילבוס. אתה לא רשום לקורס'}</span></div>
+    ${weighted.length ? `<div class="stack">${weighted.map((x, i) => `<i style="flex:${x.weight};background:var(${COMP_COLORS[i % 6]})" title="${esc(x.name)}"></i>`).join('')}</div>` : ''}
+    ${calc ? `<div class="item" style="margin-bottom:8px"><b>סופי = ${iso(calc.quiz_weight)}·בוחן + ${iso(calc.exam_weight)}·מבחן</b><div class="txt">והמבחן עצמו חייב לעבור: לפחות ${iso(calc.exam_min)}.${c.homework_counts === false ? ' עבודות הבית לא נכנסות לציון בסמסטר הזה.' : ''}</div></div>` : ''}
+    <div>${comps.map((x) => { const i = weighted.indexOf(x);
+      return `<div class="comp"><i class="dot" style="background:var(${i >= 0 ? COMP_COLORS[i % 6] : '--compare'})"></i><div style="font-weight:700">${bidi(x.name)}</div>
+        <div class="w ${x.weight ? '' : 'muted'}">${x.weight == null ? 'לא ידוע' : pctW(x.weight)}</div>${x.rule ? `<div class="r">${bidi(x.rule)}</div>` : ''}</div>`; }).join('')
+      || `<p class="empty">${bidi(g.formula_line || 'לא ידוע')}</p>`}</div>
+    ${g.pass_rule ? `<div class="item" style="margin-top:10px"><b>מעבר</b><div class="txt">${bidi(g.pass_rule)}</div></div>` : ''}
+    ${[g.magen ? details('מגן', `<div class="txt">${bidi(g.magen)}</div>`, { cls: 'plain' }) : '',
+      g.reserve_duty ? details('מילואים', `<div class="txt">${bidi(g.reserve_duty)}</div>`, { cls: 'plain' }) : '',
+      g.note ? details('הערות', `<div class="txt">${bidi(g.note)}</div>`, { cls: 'plain' }) : '',
+      (g.src || []).length ? details('מאיפה זה', g.src.map((s) => `<div class="txt" style="margin-bottom:6px">„${esc(s.quote)}” <span class="muted">${esc(s.file)}${s.page ? ` עמ׳ ${iso(s.page)}` : ''}</span></div>`).join(''), { cls: 'plain' }) : ''].join('')}`);
+}
+function calcCard(c, cls) {
+  const g = c.grading, k = g.calc, T = g.required_table;
+  const quizTaken = (c.exams || []).find((e) => e.type === 'בוחן' && e.exam_grade != null);
+  const el = card(cls, `<div class="head"><h2>כמה צריך במבחן</h2><span class="muted">${quizTaken ? `ציון הבוחן: ${num(quizTaken.exam_grade)}` : 'ציון הבוחן עוד לא ידוע'}</span></div>
+    ${k ? `<div class="calc">
+      <label>ציון הבוחן<input id="cq" type="number" min="0" max="100" inputmode="decimal" placeholder="0–100" value="${quizTaken ? esc(quizTaken.exam_grade) : ''}"></label>
+      <label>ציון סופי שאתה רוצה<input id="ct" type="number" min="${k.exam_min}" max="100" inputmode="decimal" value="${k.exam_min}"></label>
+      <div class="out"><div class="lbl">צריך במבחן</div><div class="big" id="cr">—</div><div class="muted" id="cn"></div></div></div>` : ''}
+    ${T ? `<div class="lbl" style="margin-top:6px">${esc(T.title)}</div>${reqTable(T)}` : ''}
+    <p class="muted" style="margin:8px 0 0">${k ? `המבחן הנדרש = הגבוה מבין ${iso(k.exam_min)} ו-(יעד − ${iso(k.quiz_weight)}·בוחן) / ${iso(k.exam_weight)}. ` : ''}החישוב משתמש רק בנוסחה של הסמסטר הזה.</p>`);
+  if (!k) return;
+  const q = el.querySelector('#cq'), t = el.querySelector('#ct'), r = el.querySelector('#cr'), n = el.querySelector('#cn');
+  const ratio = Math.round(k.exam_weight / k.quiz_weight * 10) / 10;
+  const upd = () => {
+    const tv = parseFloat(t.value), qv = parseFloat(q.value);
+    if (!Number.isFinite(tv)) { r.textContent = '—'; n.textContent = ''; return; }
+    const quiz = Number.isFinite(qv) ? Math.max(0, Math.min(100, qv)) : null;
+    const needFor = (qq) => Math.max(k.exam_min, (tv - k.quiz_weight * qq) / k.exam_weight);
+    const need = quiz == null ? null : needFor(quiz);
+    const r1 = (x) => Math.round(x * 10) / 10;
+    if (need == null) {  // the quiz is still ahead: the whole range, from a perfect quiz to a zero
+      const lo = r1(needFor(100)), hi = r1(needFor(0));
+      r.textContent = lo === hi ? '⁦' + lo + '⁩' : '⁦' + lo + '–' + hi + '⁩';
+      n.textContent = hi > 100 ? 'מעל 100 אם הבוחן נמוך: הכנס ציון בוחן' : 'תלוי בבוחן: מ-100 בבוחן עד 0. הכנס ציון כדי לדייק';
+    } else if (need > 100) { r.textContent = 'לא אפשרי'; n.textContent = 'צריך יותר מ-100 במבחן'; }
+    else { r.textContent = '⁦' + (Math.round(need * 10) / 10) + '⁩'; n.textContent = need === k.exam_min ? 'זה הסף של המבחן עצמו' : `כל ⁦${ratio}⁩ נקודות בבוחן חוסכות נקודה אחת במבחן`; }
+    el.querySelectorAll('tr[data-q]').forEach((tr) => tr.classList.toggle('hl', quiz != null && Math.abs(+tr.dataset.q - quiz) < 5));
+  };
+  q.oninput = upd; t.oninput = upd; upd();
+}
+function reqTable(T) {  // rows: quiz grade, columns: the final grade wanted, cells: the exam grade needed
+  const rows = Object.entries(T.rows || {}), cols = rows.length ? Object.keys(rows[0][1]) : [];
+  const n = (s) => String(s).replace(/[^\d.]/g, '');
+  return `<div class="scroll"><table><thead><tr><th>בוחן ↓ / סופי ←</th>${cols.map((x) => `<th class="n">${esc(n(x))}</th>`).join('')}</tr></thead><tbody>${
+    rows.map(([rk, rv]) => `<tr data-q="${esc(n(rk))}"><td class="n"><b>${esc(n(rk))}</b></td>${cols.map((x) => `<td class="n">${num(rv[x])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+function statusCard(c, cls) {
+  const item = (x, kind) => `<div class="chk"><span class="ic ${kind}">${kind === 'ok' ? '✓' : kind === 'miss' ? '–' : '○'}</span>
+    <div><b>${bidi(x.text)}</b>${x.note ? ` <span class="muted">· ${bidi(x.note)}</span>` : ''}</div><div class="muted" style="white-space:nowrap">${x.when ? iso(dshort(x.when)) : ''}${x.days_left != null && x.days_left >= 0 ? ` · ${daysTxt(x.days_left)}` : ''}</div></div>`;
+  const left = c.left || [], done = c.done || [];
+  card(cls, `<div class="head"><h2>מה עשית ומה נשאר</h2><span class="muted">רק מההופעה של ${esc(c.year)} ${esc(c.semester)}</span></div>
+    <div class="two"><div><div class="lbl">נשאר</div>${left.length ? left.map((x) => item(x, x.days_left != null && x.days_left >= 0 ? 'todo' : 'miss')).join('') : '<p class="empty">אין משהו פתוח</p>'}</div>
+    <div><div class="lbl">כבר מאחוריך</div>${done.length ? done.map((x) => item(x, /לא הוגש/.test(x.text) ? 'miss' : 'ok')).join('') : '<p class="empty">אין עדיין</p>'}</div></div>`);
+}
+function guideCard(c) {
+  const G = c.exam_guide || [], top = G.find((s) => !s.title);
+  card('', `<div class="head"><h2>מדריך המבחנים</h2><span class="muted">מבסיס הידע · ${iso(G.filter((s) => s.title).length)} פרקים</span></div>
+    ${top ? `<div class="md math">${md(top.md.replace(/^#\s.*$/m, ''))}</div>` : ''}
+    ${G.filter((s) => s.title).map((s, i) => details(esc(s.title), `<div class="md math">${md(s.md)}</div>`,
+      { open: i === 0, side: s.past ? '<span class="pill warn">מבוסס על ניסיונות קודמים</span>' : '' })).join('')}`);
+}
+function assignmentsCard(c, cls) {
+  const L = c.moodle.assignments || [];
+  card(cls, `<div class="head"><h2>עבודות</h2><span class="muted">${c.homework_counts === false ? 'בהופעה הזו הן רשות ולא נכנסות לציון' : c.homework_counts ? 'נכנסות לציון' : ''}</span></div>
+    ${L.length ? `<div class="rows">${L.map((a) => row({ name: link(a.url, esc(a.name)), cls: a.counts === false ? 'faded' : '',
+      sub: `${a.submitted ? '<span class="up">הוגש</span>' : (a.days_left ?? 0) < 0 ? 'לא הוגש' : 'עוד לא הוגש'}${a.team ? ' · בזוגות' : ''}${a.cutoff && a.cutoff !== a.due ? ` · נסגר סופית ${when(a.cutoff)}` : ''}${a.grade != null ? ` · ציון ${num(a.grade)}${a.max ? '/' + num(a.max) : ''}` : ''}`,
+      value: when(a.due), change: a.submitted ? '<span class="pill up">הוגש</span>' : (a.days_left ?? 0) < 0 ? (a.counts === false ? '<span class="pill soft">רשות</span>' : '<span class="pill down">המועד עבר</span>') : daysPill(a.days_left) })).join('')}</div>`
+      : '<p class="empty">אין עבודות במודל</p>'}`);
+}
+function quizzesCard(c, cls) {
+  const L = c.moodle.quizzes || [];
+  card(cls, `<div class="head"><h2>בחנים במודל</h2><span class="muted">${iso(L.filter((q) => q.attempts).length)} מתוך ${iso(L.length)} נפתרו</span></div>
+    <div class="rows">${L.map((q) => row({ name: link(q.url, esc(q.name)),
+      sub: `${q.attempts ? `${plural(q.attempts, 'ניסיון אחד', 'ניסיונות')}` : 'לא נפתר'}${q.intro ? ` · <span title="${esc(q.intro)}">${esc(q.intro.split('\n').pop().slice(0, 70))}</span>` : ''}`,
+      value: q.best != null ? `${num(q.best)}<span class="muted"> / ${num(q.max)}</span>` : when(q.closes),
+      change: q.attempts ? `נסגר ${iso(dshort(q.closes))}` : (q.days_left ?? -1) >= 0 ? daysPill(q.days_left) : '<span class="pill soft">נסגר</span>' })).join('')}</div>`);
+}
+function forumCard(c, cls) {
+  const F = c.forum, L = F.items || [];
+  const el = card(cls, `<div class="head"><h2>הודעות אחרונות</h2><span class="muted">מהצוות, ומה שמשנה משהו</span></div>
+    ${!F.folder ? '<p class="empty">אין עדיין: הפורומים של הקורס עוד לא ירדו מהמודל.</p>'
+      : L.length ? `<div class="items">${L.slice(0, 5).map((x) => newsItem(x, false)).join('')}</div>${L.length > 5 ? `<details class="plain"><summary>עוד ${iso(L.length - 5)} הודעות מהצוות</summary><div class="items">${L.slice(5).map((x) => newsItem(x, false)).join('')}</div></details>` : ''}`
+      : '<p class="empty">אין הודעות מהצוות</p>'}
+    ${F.folder && F.hidden ? `<p class="muted" style="margin:10px 0 0">עוד ${iso(F.hidden)} הודעות בפורומים</p>` : ''}`);
+  return el;
+}
+function recordingsCard(c, cls) {
+  const L = c.moodle.recordings || [], G = {};
+  L.forEach((r) => { (G[r.section] = G[r.section] || []).push(r); });
+  card(cls, `<div class="head"><h2>הקלטות</h2><span class="muted">${iso(L.length)} במודל · ${L.some((r) => r.transcribed) ? '' : 'אף אחת עוד לא תומללה'}</span></div>
+    ${L.length ? Object.entries(G).map(([sec, rs]) => `<div class="lbl" style="margin:10px 0 2px">${esc(sec)}</div><div class="mods">${rs.map((r) =>
+      `<div class="mod"><span class="k">${esc(MODK[r.type] || r.type)}</span><div style="display:flex;justify-content:space-between;gap:10px;min-width:0"><span style="min-width:0;overflow-wrap:anywhere">${link(r.url, esc(r.name))}</span>
+        ${r.transcribed ? '<span class="pill up">תומלל</span>' : '<span class="pill soft">לא תומלל</span>'}</div></div>`).join('')}</div>`).join('') : '<p class="empty">אין הקלטות במודל</p>'}`);
+}
+function materialCard(c) {
+  const secs = c.moodle.sections || [];
+  const mod = (m) => `<div class="mod ${m.visible ? '' : 'hidden'}"><span class="k">${esc(MODK[m.type] || m.type)}</span><div style="min-width:0">${m.type === 'label' ? '' : link(m.url, esc(m.name))}${m.visible ? '' : ' <span class="muted">(מוסתר)</span>'}
+    ${m.type === 'label' ? `<span class="note">${esc(m.text || m.name)}</span>` : m.text ? `<span class="note">${esc(m.text)}</span>` : ''}${(m.links || []).filter(safeUrl).map((u) => ` <span class="muted">${link(u, '↗')}</span>`).join('')}</div></div>`;
+  card('', `<div class="head"><h2>החומר במודל, לפי יחידות</h2><span class="muted">${iso(secs.reduce((s, x) => s + x.modules.length, 0))} פריטים ב-${iso(secs.length)} יחידות</span></div>
+    ${secs.map((s) => details(esc(s.name || `יחידה ${s.n}`), `${s.summary ? `<div class="txt" style="margin-bottom:8px">${esc(s.summary)}</div>` : ''}${s.modules.length ? `<div class="mods">${s.modules.map(mod).join('')}</div>` : '<p class="empty">היחידה ריקה</p>'}`,
+      { side: `<span class="muted">${s.modules.length ? iso(s.modules.length) : 'ריק'}</span>` })).join('')}`);
+}
+function localFilesCard(c) {
+  const G = {}; (c.local_files || []).forEach((f) => { (G[f.folder || 'ראשי'] = G[f.folder || 'ראשי'] || []).push(f); });
+  card('', `<div class="head"><h2>החומר שיש אצלך</h2><span class="muted">${iso(c.local_files.length)} קבצים בתיקיית הקורס${c.moodle_id ? '' : ' · הקורס לא במודל'}</span></div>
+    ${Object.entries(G).map(([k, fs]) => details(esc(k), `<div class="mods">${fs.map((f) => `<div class="mod"><span class="k">${esc(f.kind || 'קובץ')}</span><div dir="auto">${esc(f.name)}${f.pages ? ` <span class="muted">· ${iso(f.pages)} עמ׳</span>` : ''}</div></div>`).join('')}</div>`,
+      { side: `<span class="muted">${iso(fs.length)}</span>` })).join('')}`);
+}
+function topicsCard(c) {
+  const K = c.kb;
+  if (!K) { card('', '<div class="head"><h2>נושאים ומושגים</h2></div><p class="empty">אין עדיין סיכום בבסיס הידע</p>'); return; }
+  const by = {}; (K.concepts || []).forEach((x) => { by[x.key] = x; });
+  const chip = (x) => cchip(x.name, x.g, x.level);
+  const cnt = (lv) => (K.concepts || []).filter((x) => x.level === lv).length;
+  const el = card('', `<div class="head"><h2>נושאים ומושגים</h2><span class="muted">${c.past ? `רק השיעורים של ${esc(c.year)} ${esc(c.semester)} · ` : ''}${iso((K.units || []).length)} ${c.is_research ? 'יחידות' : 'שיעורים'} · ${iso((K.concepts || []).length)} מושגים</span></div>
+    ${K.summary ? `<div class="txt math" style="margin-bottom:12px">${esc(K.summary)}</div>` : ''}
+    ${(K.units || []).map((u) => details(esc(u.title), `<div class="txt math">${esc(u.summary)}</div>${(u.concepts || []).length ? `<div class="chips" style="margin-top:8px">${u.concepts.map((x) => cchip(x.n, x.g, (by[x.k] || {}).level || '')).join('')}</div>` : ''}`)).join('')}
+    <div class="head" style="margin:16px 0 8px"><div class="lbl">המושגים לפי רמה</div><div class="legend"><span><i class="dot" style="background:var(--up)"></i>חזק ${iso(cnt('strong'))}</span><span><i class="dot" style="background:var(--accent)"></i>בסדר ${iso(cnt('ok'))}</span><span><i class="dot" style="background:var(--warn)"></i>חלש ${iso(cnt('weak'))}</span><span><i class="dot" style="background:var(--compare)"></i>לא ידוע ${iso(cnt('unknown'))}</span></div></div>
+    <div class="chips">${['weak', 'ok', 'strong', 'unknown'].flatMap((lv) => (K.concepts || []).filter((x) => x.level === lv)).map(chip).join('')}</div>
+    <p class="muted" style="margin:10px 0 0">לחיצה על מושג פותחת אותו במפת הידע: איפה למדת אותו, מאיזה קובץ ועמוד, ועל מה הוא נשען.${K.levels_note ? ' ' + esc(K.levels_note) : ''}</p>`);
+  return el;
+}
+function judgedList(L, { showScope = true, cap = 6 } = {}) {
+  const one = (x) => `<div class="item"><div class="txt math" style="margin:0;color:var(--ink)">${esc(x.text)}</div>
+    ${(x.concepts || []).length || (showScope && SCOPE[x.scope]) ? `<div class="pills">${showScope && SCOPE[x.scope] ? `<span class="pill warn">${SCOPE[x.scope]}</span>` : ''}${(x.concepts || []).map((k) => cchip(k.n, k.g)).join('')}</div>` : ''}</div>`;
+  if (!L.length) return '<p class="empty">אין עדיין</p>';
+  return `<div class="items">${L.slice(0, cap).map(one).join('')}</div>${L.length > cap ? `<details class="plain"><summary>ועוד ${iso(L.length - cap)}</summary><div class="items">${L.slice(cap).map(one).join('')}</div></details>` : ''}`;
+}
+function judgedCard(c) {
+  const K = c.kb; if (!K) return;
+  const cur = (L) => (L || []).filter((x) => !c.past || x.scope !== 'past');
+  const s = cur(K.strengths), w = cur(K.weaknesses);
+  if (!s.length && !w.length && !c.past && c.is_research) return;
+  if (!s.length && !w.length && c.past) {
+    card('', `<div class="head"><h2>חוזקות וחולשות</h2></div><p class="empty">אין עדיין חוזקות וחולשות מ-${esc(c.year)} ${esc(c.semester)}. מה שידוע מהניסיונות הקודמים נמצא למטה, בבלוק "ניסיונות קודמים".</p>`);
+    return;
+  }
+  card('', `<div class="head"><h2>חוזקות וחולשות</h2><span class="muted">${c.past ? `מה שנשען על ${esc(c.year)} ${esc(c.semester)}. מה שמבוסס רק על ניסיונות קודמים נמצא למטה` : 'מבסיס הידע'}</span></div>
+    <div class="two"><div><div class="lbl" style="margin-bottom:8px">חוזקות</div>${judgedList(s)}</div><div><div class="lbl" style="margin-bottom:8px">חולשות</div>${judgedList(w)}</div></div>`);
+}
+function relatedCard(c) {
+  const R = c.related || {};
+  if (!(R.builds_on || []).length && !(R.used_by || []).length) return;
+  card('', `<div class="head"><h2>מושגים שמגיעים מקורסים קודמים / שממשיכים לקורסים אחרים</h2><span class="muted">ממפת הידע</span></div>${courseLinksHtml(R)}`);
+}
+function pastCard(c) {
+  const P = c.past, K = c.kb || {};
+  const ps = (K.strengths || []).filter((x) => x.scope === 'past'), pw = (K.weaknesses || []).filter((x) => x.scope === 'past');
+  card('past', `<div class="head"><h2>ניסיונות קודמים</h2><span class="pill warn">היסטוריה בלבד</span></div>
+    <div class="ribbon">מהופעות קודמות של הקורס. לא חל על ${esc(c.year)} ${esc(c.semester)}: לא הנוסחה, לא העבודות ולא הציונים שלהן.</div>
+    <div class="items">${(P.offerings || []).map((o) => `<div class="item"><div class="h"><b>${esc(o.label)}${o.moodle_ids.length ? ` <span class="muted">· מודל ${o.moodle_ids.map(iso).join(', ')}</span>` : ''}</b>
+        <span>${o.final_grade ? `ציון סופי <b>${esc(o.final_grade)}</b>` : 'אין ציון בגיליון'}</span></div>
+      <div class="meta">${[o.lecturer ? esc(o.lecturer) : '', o.note ? esc(o.note) : '', o.moed_grades ? Object.entries(o.moed_grades).filter(([, v]) => v != null).map(([k, v]) => `מועד ${esc(k)}: ${iso(esc(v))}`).join(' · ') : ''].filter(Boolean).join(' · ')}</div>
+      ${o.formula_line ? `<div class="txt">הנוסחה אז: ${bidi(o.formula_line)}</div>` : ''}
+      ${o.computed_vs_official ? `<div class="txt">${bidi(o.computed_vs_official)}</div>` : ''}
+      ${(o.exams || []).length ? table(['בחינה', 'תאריך', 'ציון בחינה', 'ציון סופי'], o.exams.map((e) => [esc(e.type_official || e.type), iso(dfull(e.date)), num(e.exam_grade), num(e.final_grade ?? e.sheet_grade)]), [1, 2, 3]) : ''}
+      ${(o.timeline || []).length ? details(`ציונים לאורך ההופעה (${iso(o.timeline.length)})`, table(['מתי', 'מה', 'ציון', 'הערה'], o.timeline.map((t) => [iso(dfull(t.date)), esc(t.event), t.score == null ? '—' : `${num(t.score)}${t.max ? '/' + num(t.max) : ''}`, `<span class="muted">${esc(t.note)}</span>`]), [0, 2]), { cls: 'plain' }) : ''}
+    </div>`).join('')}</div>
+    ${P.summary ? `<h3>מה השתנה בין הניסיונות</h3><div class="txt math">${esc(P.summary)}</div>` : ''}
+    ${ps.length || pw.length ? `<div class="two" style="margin-top:14px"><div><div class="lbl" style="margin-bottom:8px">חוזקות מהניסיונות הקודמים</div>${judgedList(ps, { showScope: false })}</div><div><div class="lbl" style="margin-bottom:8px">חולשות מהניסיונות הקודמים</div>${judgedList(pw, { showScope: false })}</div></div>` : ''}`);
+}
+
+// ---------- the knowledge map ----------
+// The concept index (build.py gather_concepts) is loaded on first use: from an inline block when the build put it
+// there (--inline-concepts), else from data/concepts.js (a script tag, which works from file:// too), else by fetching
+// data/concepts.json. A place is [course, year, semester, file, page, page_end]; a use adds [where, used_how, weight,
+// learned_in, note]; a file is [url path, name, extension].
+let KM = null, KM_LOADING = null, RENDER = 0;
+const WHERE_HE = { submission: 'בהגשה', project: 'בפרויקט', exam: 'במבחן', quiz: 'בבוחן', lecture: 'בהרצאה', recitation: 'בתרגול' };
+const HOW_HE = { proof: 'הוכחה', computation: 'חישוב', code: 'קוד', modeling: 'מידול', analysis: 'ניתוח', explanation: 'הסבר' };
+const OWN = (w) => w === 'submission' || w === 'project';  // his own work
+const SEM_ORDER = { 'א': 1, 'ב': 2, 'קיץ': 3 };
+const KIND_HE = { definition: 'הגדרה', theorem: 'משפט', lemma: 'למה', algorithm: 'אלגוריתם', technique: 'טכניקה', model: 'מודל', notation: 'סימון', other: 'מושג' };
+// Search text: no case, niqqud, accents, quotes, geresh or gershayim; hyphens, maqaf and punctuation become spaces.
+const norm = (s) => String(s || '').toLowerCase().replace(/־/g, ' ').normalize('NFKD').replace(/[֑-ׇ̀-ͯ]/g, '')
+  .replace(/["'`״׳’‘“”]/g, '').replace(/[-_–—‐/\\.,:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim();
+const placeKey = (p) => `${p[1] || '9999'}-${SEM_ORDER[p[2]] || 9}`;
+const cname = (k) => (KM.courses[k] || [k])[0];
+const isNac = (k) => !!(KM.courses[k] || [])[1];
+const conceptHref = (k) => '#concept:' + encodeURIComponent(k);
+// a concept chip: a link into the knowledge map when the concept is in it, plain text otherwise
+const cchip = (name, g, cls = '') => g ? `<a class="chip ${cls}" href="${conceptHref(g)}">${esc(name)}</a>` : `<span class="chip ${cls}">${esc(name)}</span>`;
+
+function loadScript(src) {
+  return new Promise((res) => { const s = document.createElement('script'); s.src = src; s.onload = () => res(true); s.onerror = () => { s.remove(); res(false); }; document.head.append(s); });
+}
+function loadConcepts() {
+  if (KM) return Promise.resolve(KM);
+  if (!KM_LOADING) KM_LOADING = (async () => {
+    let raw = null;
+    try { raw = JSON.parse(document.getElementById('concepts').textContent); } catch (e) { raw = null; }
+    if (!raw && await loadScript('data/concepts.js?v=' + encodeURIComponent((D && D.generated) || ''))) raw = window.__CONCEPTS__ || null;
+    if (!raw) { try { raw = await (await fetch('data/concepts.json', { cache: 'no-store' })).json(); } catch (e) { raw = null; } }
+    if (!raw || !raw.concepts) { KM_LOADING = null; return null; }
+    const by = Object.create(null), rdep = Object.create(null);  // no prototype: there are concepts called "constructor"
+    const uses = Object.create(null);  // uses[course][learned_in] = [{k, p}]: what each course took from each earlier one
+    raw.concepts.forEach((c) => { by[c.k] = c; });
+    raw.concepts.forEach((c) => c.dep.forEach((d) => { (rdep[d] = rdep[d] || []).push(c.k); }));
+    // places come trimmed of trailing empties: pad to [course, year, semester, file, page, page_end] (+ the use fields)
+    const pad = (p, n) => Array.from({ length: n }, (_, i) => p[i] ?? null);
+    raw.concepts.forEach((c) => {
+      c.d = c.d.map((p) => pad(p, 6)); c.u = c.u.map((p) => pad(p, 11));
+      if (typeof c.fl === 'number') c.fl = c.d[c.fl] || null;  // first_learned is stored as an index into d
+      else if (c.fl) c.fl = pad(c.fl, 6);
+      c.u.forEach((p) => { if (p[9]) { const m = uses[p[0]] = uses[p[0]] || Object.create(null); (m[p[9]] = m[p[9]] || []).push({ k: c.k, p }); } });
+      // "איפה זה הופיע": the definitions and the plain mentions; the detailed uses (with where and note) are listed apart
+      const places = [...c.d.map((p) => [...p, 'd']), ...c.u.filter((p) => !p[6]).map((p) => [...p.slice(0, 6), 'u'])];  // [6]: 'd'/'u'
+      c.places = places.sort((a, b) => placeKey(a).localeCompare(placeKey(b)) || (a[6] === b[6] ? 0 : a[6] === 'd' ? -1 : 1));
+      c.uses = c.u.filter((p) => p[6]).sort(useCmp);
+      c.rdep = rdep[c.k] || [];
+      c.courses = [...new Set([...c.d, ...c.u].map((p) => p[0]).filter((k) => !(raw.courses[k] || [])[1]))];
+      c.first = c.fl || c.places[0] || null;
+      c.score = c.courses.length * 3 + c.dep.length + c.rdep.length;
+      c.names = [c.he, c.en, c.k, ...(c.al || [])].map(norm).filter(Boolean);
+      c.hay = ' ' + c.names.join(' | ') + ' ';
+    });
+    KM = { ...raw, by, uses };
+    return KM;
+  })();
+  return KM_LOADING;
+}
+// his own work first (submission, project), then the heavier, then by date
+function useCmp(a, b) { return (OWN(b[6]) - OWN(a[6])) || ((b[8] || 0) - (a[8] || 0)) || placeKey(a).localeCompare(placeKey(b)); }
+// A Hebrew word without a plural or feminine ending, so "שלמות" also finds "NP-שלמה" (only for words of 4+ letters).
+const stem = (w) => /^[א-ת]{4,}$/.test(w) ? w.replace(/(ות|ים|ה|ת)$/, '') : w;
+function searchConcepts(q) {
+  const n = norm(q); if (!n) return [];
+  const words = n.split(' ');
+  const hits = [];
+  for (const c of KM.concepts) {
+    const exact = words.every((w) => c.hay.includes(w));
+    if (!exact && !words.every((w) => c.hay.includes(stem(w)))) continue;
+    let s = exact ? 10 : 5;  // every word (or its stem) appears somewhere
+    for (const nm of c.names) s = Math.max(s, nm === n ? 100 : nm.startsWith(n) ? 70 : (' ' + nm).includes(' ' + n) ? 45 : nm.includes(n) ? 30 : 0);
+    hits.push([s + Math.min(c.score, 30) / 10, c]);
+  }
+  return hits.sort((a, b) => b[0] - a[0]).slice(0, 40).map((x) => x[1]);
+}
+// where a course lives on the site: its tab (current), its archive row, or nowhere (e.g. a course he does not take)
+function courseHref(k) {
+  if (courseByKey(k)) return '#c:' + encodeURIComponent(k);
+  return D.archive.semesters.some((s) => s.courses.some((x) => x.key === k)) ? '#archive:' + encodeURIComponent(k) : null;
+}
+function courseLabel(k) {
+  if (isNac(k)) return `${esc(cname(k))} <span class="pill warn">חומר יסוד (לא קורס)</span>`;
+  const h = courseHref(k);
+  return h ? `<a href="${esc(h)}">${esc(cname(k))}</a>` : esc(cname(k));
+}
+const courseWhen = (k) => { const s = (KM.courses[k] || [])[2]; return s ? `${iso(s.split(' ')[0])} ${s.split(' ')[1] === 'קיץ' ? 'קיץ' : 'סמסטר ' + esc(s.split(' ')[1] || '')}` : ''; };
+
+// ---------- the tree a course stands on (course_paths + the prereqs pass) ----------
+// A node is an earlier course. Its row: weight bar, how many of his own submissions used it. Opened: the concepts it
+// gave (via), what this course used from it, heaviest first, with the note and the file at the page; then the
+// courses further down that reached this course through it.
+function useItem(x, { course = false } = {}) {
+  const p = x.p, c = KM.by[x.k], heavy = p[8] === 3;
+  return `<div class="ti ${heavy ? 'heavy' : ''}"><div class="h">${cchip(c ? c.he : x.k, c ? x.k : null)}
+      <span class="muted">${course ? `${courseLabel(p[0])} · ` : ''}${esc(WHERE_HE[p[6]] || p[6] || '')}${HOW_HE[p[7]] ? ' · ' + esc(HOW_HE[p[7]]) : ''}</span>
+      ${heavy ? '<span class="pill up">משקל 3: הגשה שלך</span>' : OWN(p[6]) ? '<span class="pill soft">הגשה שלך</span>' : ''}</div>
+    ${p[10] ? `<div class="txt">${esc(p[10])}</div>` : ''}<div class="meta">${fileRef(p)}</div></div>`;
+}
+function itemCmp(a, b) { return ((b.p[8] || 0) - (a.p[8] || 0)) || (OWN(b.p[6]) - OWN(a.p[6])) || String(a.k).localeCompare(String(b.k)); }
+function treeHtml(key) {
+  const P = (KM.paths[key] || []).map(([a, d, w, via, path]) => ({ a, d, w, via, path }));
+  const pre = KM.pre[key];
+  if (!P.length) return `${pre && pre[0] ? `<div class="txt" style="color:var(--ink)">${esc(pre[0])}</div>` : ''}<p class="empty">אין עדיין עץ לקורס הזה</p>`;
+  const kids = {}; P.forEach((n) => { const parent = n.d > 1 ? n.path[1] : ''; (kids[parent] = kids[parent] || []).push(n); });
+  Object.values(kids).forEach((L) => L.sort((x, y) => y.w - x.w));
+  const maxW = Math.max(1, ...P.map((n) => n.w));
+  const node = (n) => {
+    const hop = n.path[1] || key;  // the course this ancestor fed directly
+    const items = ((KM.uses[hop] || {})[n.a] || []).slice().sort(itemCmp);
+    const heavy = items.filter((x) => x.p[8] === 3).length, own = items.filter((x) => OWN(x.p[6])).length;
+    const children = kids[n.a] || [];
+    const head = `<span class="tn"><b>${courseLabel(n.a)}</b><span class="muted">${courseWhen(n.a)}${n.d > 1 ? ` · דרך ${n.path.slice(1, -1).reverse().map((k) => esc(cname(k))).join(' ← ')}` : ''}</span>
+        <span class="track"><i style="width:${Math.max(3, n.w / maxW * 100)}%;background:var(${heavy ? '--s3' : '--accent'})"></i></span></span>`;
+    const side = `${heavy ? `<span class="pill up" title="שימושים במשקל 3 בהגשות שלך">${iso(heavy)} בהגשות שלך</span>` : own ? `<span class="pill soft">${iso(own)} בהגשות שלך</span>` : ''}<span class="muted">משקל ${iso(n.w)}</span>`;
+    const body = `${n.via.length ? `<div class="lbl" style="margin:2px 0 6px">מה עבר ממנו${n.d > 1 ? ` אל ${esc(cname(hop))}` : ''}</div><div class="chips">${n.via.map((k) => cchip(KM.by[k] ? KM.by[k].he : k, KM.by[k] ? k : null)).join('')}</div>` : ''}
+      ${items.length ? `<div class="lbl" style="margin:12px 0 6px">${n.d > 1 ? `איך ${esc(cname(hop))} השתמש בזה` : 'איך השתמשת בזה כאן'} (${iso(items.length)})</div>
+        <div class="tis">${items.slice(0, 6).map((x) => useItem(x)).join('')}</div>${items.length > 6 ? details(`עוד ${iso(items.length - 6)}`, `<div class="tis">${items.slice(6).map((x) => useItem(x)).join('')}</div>`, { cls: 'plain' }) : ''}` : ''}
+      ${children.length ? `<div class="lbl" style="margin:14px 0 4px">ומתחתיו (${iso(children.length)})</div><div class="tree sub">${children.map(node).join('')}</div>` : ''}`;
+    return details(head, body, { side, cls: 'tnode' });
+  };
+  const top = kids[''] || [], deep = P.filter((n) => n.d > 1).length;
+  return `${pre && pre[0] ? `<div class="txt" style="color:var(--ink);font-size:14.5px">${esc(pre[0])}</div>` : ''}
+    ${pre && pre[1] != null ? `<p class="muted" style="margin:6px 0 0">העבודות: ${iso(Math.round(pre[1] * 100) + '%')} מהציון${pre[2] ? ` · ${esc(pre[2])}` : ''}. משקל 3 = כלי ששימש אותך בהגשה, בקורס שבו העבודות הן חצי מהציון או יותר.</p>` : ''}
+    <div class="lbl" style="margin:14px 0 4px">${iso(top.length)} קורסים ישירים${deep ? `, ועוד ${iso(deep)} מתחתיהם` : ''}, הכבדים קודם</div>
+    <div class="tree">${top.slice(0, 10).map(node).join('')}</div>
+    ${top.length > 10 ? details(`עוד ${iso(top.length - 10)} קורסים ישירים`, `<div class="tree">${top.slice(10).map(node).join('')}</div>`, { cls: 'plain' }) : ''}`;
+}
+async function treeInto(el, key) {
+  el.innerHTML = '<p class="muted">טוען את העץ…</p>';
+  const km = await loadConcepts();
+  if (!el.isConnected) return;
+  el.innerHTML = km ? treeHtml(key) : '<p class="empty">מפת הידע לא נטענה</p>';
+  wire(el); typeset(el);
+}
+function treeCard(c) {
+  const el = card('', `<div class="head"><h2>העץ שהקורס עומד עליו</h2><span class="muted">אילו קורסים קודמים הוא צריך, ומה לקחת מכל אחד</span></div><div class="treebox"></div>`);
+  treeInto(el.querySelector('.treebox'), c.key);
+}
+function fileRef(p) {  // "file name · עמ׳ 6" with a link that opens the file at that page
+  const [, , , fid, page, pageEnd] = p;
+  if (!fid) return '<span class="muted">בלי קובץ מקור</span>';
+  const f = KM.files[fid];
+  if (!f) return `<span class="muted">${esc(fid)} (לא בקטלוג)</span>`;
+  const unit = f[2] === 'pptx' ? 'שקף' : 'עמ׳', pages = page ? `${unit} ${iso(page)}${pageEnd && pageEnd !== page ? '–' + iso(pageEnd) : ''}` : '';
+  const base = String(KM.files_base || '/');
+  const ok = /^(\/|\.\.?\/|https?:\/\/)/i.test(base);  // the file server prefix comes from the build, never from data
+  const href = base + f[0] + (f[2] === 'pdf' && page ? '#page=' + page : '');
+  // the name without its extension (a Hebrew name ending in ")" would push ".pdf" to the wrong side), the type apart
+  const ext = f[2] || '', stemName = ext && f[1].toLowerCase().endsWith('.' + ext) ? f[1].slice(0, -ext.length - 1) : f[1];
+  const label = `${bidi(stemName)}${ext ? ` <span class="ext">${esc(ext.toUpperCase())}</span>` : ''}`;
+  return `${ok ? `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>` : `<span>${label}</span>`}${pages ? ` <span class="muted">· ${pages}</span>` : ''}`;
+}
+const semLabel = (p) => p[1] ? `${iso(p[1])} ${p[2] === 'קיץ' ? 'קיץ' : `סמסטר ${esc(p[2] || '')}`}` : '';
+function conceptItem(c) {
+  const f = c.first;
+  return `<a class="kmi" href="${conceptHref(c.k)}"><b>${esc(c.he)}</b>${c.en && c.en !== c.he ? `<span class="en">${esc(c.en)}</span>` : ''}
+    <span class="meta">${f ? `${esc(cname(f[0]))} · ${semLabel(f)}` : 'מקור לא ידוע'} · ${c.courses.length ? (c.courses.length === 1 ? 'קורס אחד' : `${iso(c.courses.length)} קורסים`) : 'חומר יסוד'}</span></a>`;
+}
+
+async function knowledgeMap() {
+  const tok = ++RENDER;
+  const top = card('', `<div class="head"><h1>מפת ידע</h1><span class="muted" id="km-count">טוען…</span></div>
+    <input id="q" class="search" type="search" placeholder="חפש מושג, בעברית או באנגלית" autocomplete="off" spellcheck="false" aria-label="חיפוש מושג">
+    <div id="km-results"></div>`);
+  const input = top.querySelector('#q'); input.value = S.q || '';
+  const km = await loadConcepts();
+  if (tok !== RENDER) return;  // another tab was opened meanwhile
+  if (!km) { top.querySelector('#km-count').textContent = ''; card('', '<p class="empty">מפת הידע לא נטענה. צריך להריץ את build.py.</p>'); syncPlayer(); return; }
+  top.querySelector('#km-count').textContent = `${km.concepts.length.toLocaleString('he-IL')} מושגים · ${km.course_edges.length} קשרים בין קורסים`;
+  const results = top.querySelector('#km-results');
+  const below = [];
+  const showResults = () => {
+    S.q = input.value; const L = searchConcepts(S.q);
+    results.innerHTML = !norm(S.q) ? '' : L.length ? `<div class="kml">${L.map(conceptItem).join('')}</div>` : '<p class="empty">לא נמצא מושג כזה</p>';
+    below.forEach((el) => { el.hidden = !!norm(S.q) && !S.concept; });
+  };
+  input.oninput = showResults;
+  input.onkeydown = (e) => { if (e.key === 'Enter') { const L = searchConcepts(input.value); if (L[0]) { S.q = ''; location.hash = conceptHref(L[0].k); } } };
+  results.onclick = (e) => { if (e.target.closest('a.kmi')) S.q = ''; };
+  if (S.concept) {
+    const c = km.by[S.concept];
+    if (c) conceptView(c).forEach((el) => below.push(el));
+    else below.push(card('', `<p class="empty">אין במפה מושג בשם "${esc(S.concept)}"</p>`));
+  } else overview().forEach((el) => below.push(el));
+  showResults();
+  wire(view); typeset(view); syncPlayer();
+  if (!S.concept && !('ontouchstart' in window)) input.focus();
+}
+function overview() {
+  const hub = [...KM.concepts].sort((a, b) => b.score - a.score).slice(0, 24);
+  const a = card('', `<div class="head"><h2>המושגים הכי מחוברים</h2><span class="muted">לפי מספר הקורסים והקשרים</span></div>
+    <div class="kml">${hub.map(conceptItem).join('')}</div>`);
+  const deep = deepPathsCard();
+  const E = [...KM.course_edges].sort((x, y) => (y.w ?? y.n) - (x.w ?? x.n));
+  const edge = (e) => `<div class="kme"><div class="h"><b>${courseLabel(e.t)} <span class="arrow">←</span> ${courseLabel(e.f)}</b><span class="muted">${e.w != null ? `משקל ${iso(e.w)}` : `${iso(e.n)} מושגים`}</span></div>
+    <div class="chips">${edgeConcepts(e)}</div></div>`;
+  const b = card('', `<div class="head"><h2>הקשרים בין הקורסים</h2><span class="muted">החץ פירושו "נשען על": הקורס מימין נשען על הקורס משמאל. הכבדים קודם. בירוק: מושג ששימש אותך בהגשה (משקל 3)</span></div>
+    <div class="kmes">${E.slice(0, 20).map(edge).join('')}</div>
+    ${E.length > 20 ? details(`עוד ${iso(E.length - 20)} קשרים`, `<div class="kmes">${E.slice(20).map(edge).join('')}</div>`, { cls: 'plain' }) : ''}`);
+  return [a, deep, b];
+}
+// The deepest course paths into the current courses and into graph learning. course_paths keeps every ancestor
+// once, at its shortest distance, so a long chain like "graph learning ← algebra 2 ← algebra 1" never shows there.
+// Here: the longest chains back in time over the course edges, using only edges of at least the chosen weight; for
+// every direct predecessor the longest chain through it, the longest first, then the one whose weakest hop is heavier.
+// what passed on a course edge: the concepts the later course used that were learned in the earlier one (heaviest
+// first), or the edge's examples when the prereqs pass has none
+function edgeConcepts(e, n = 6) {
+  const seen = new Map();
+  ((KM.uses[e.t] || {})[e.f] || []).forEach((x) => seen.set(x.k, Math.max(seen.get(x.k) || 0, x.p[8] || 0)));
+  const keys = seen.size ? [...seen].sort((a, b) => b[1] - a[1]).map((x) => x[0]) : e.ex;
+  return keys.slice(0, n).map((k) => cchip(KM.by[k] ? KM.by[k].he : k, KM.by[k] ? k : null, seen.get(k) === 3 ? 'strong' : '')).join('');
+}
+const timeKey = (k) => { const s = (KM.courses[k] || [])[2] || ''; const [y, sm] = s.split(' '); return `${y || '9999'}-${SEM_ORDER[sm] || 9}`; };
+function longestChains(target, T) {
+  const preds = Object.create(null);
+  KM.course_edges.forEach((e) => { if ((e.w ?? 0) >= T && !isNac(e.f) && timeKey(e.f) < timeKey(e.t)) (preds[e.t] = preds[e.t] || []).push(e); });
+  const memo = Object.create(null);
+  const longest = (k) => {  // {len, minw, chain: [k, older, ..., oldest]}
+    if (memo[k]) return memo[k];
+    let best = { len: 0, minw: Infinity, chain: [k] };
+    (preds[k] || []).forEach((e) => { const r = longest(e.f), cand = { len: r.len + 1, minw: Math.min(r.minw, e.w), chain: [k, ...r.chain] };
+      if (cand.len > best.len || (cand.len === best.len && cand.minw > best.minw)) best = cand; });
+    return (memo[k] = best);
+  };
+  return (preds[target] || []).map((e) => { const r = longest(e.f); return { len: r.len + 1, minw: Math.min(r.minw, e.w), chain: [target, ...r.chain] }; })
+    .sort((a, b) => (b.len - a.len) || (b.minw - a.minw));
+}
+function deepPathsCard() {
+  const targets = [...new Set([...D.courses.map((c) => c.key), 'graph-learning'])].filter((k) => KM.courses[k]);
+  const edgeOf = Object.create(null); KM.course_edges.forEach((e) => { edgeOf[e.f + '|' + e.t] = e; });
+  const chainHtml = (r) => {
+    const hops = r.chain.slice(0, -1).map((k, i) => edgeOf[r.chain[i + 1] + '|' + k]);  // newest hop first
+    const head = `<span class="cpath">${r.chain.map((k, i) => `${i ? '<span class="arrow">←</span>' : ''}${courseLabel(k)}`).join('')}</span>`;
+    const body = hops.map((e) => `<div class="hop"><div class="lbl">${esc(cname(e.t))} ← ${esc(cname(e.f))} <span class="muted" style="font-weight:500">· משקל ${iso(e.w)}</span></div>
+      <div class="chips">${edgeConcepts(e)}</div></div>`).join('');
+    return details(head, body, { cls: 'kme dchain', side: `<span class="muted">${iso(r.len)} צעדים · החלש ${iso(r.minw)}</span>` });
+  };
+  const draw = (el) => {
+    const T = S.depthT || 8;
+    el.querySelector('.dps').innerHTML = targets.map((t) => {
+      const L = longestChains(t, T), tree = (KM.paths[t] || []).length;
+      return `<div class="dp"><h3>${courseLabel(t)} <span class="muted" style="font-weight:500">· ${iso(tree)} קורסים בעץ שלו</span></h3>
+        ${L.length ? `<div class="kmes">${L.slice(0, 3).map(chainHtml).join('')}</div>` : `<p class="empty">אין קשר במשקל ${iso(T)} ומעלה</p>`}</div>`;
+    }).join('');
+    el.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.t === T)));
+    wire(el);
+  };
+  const el = card('', `<div class="head"><h2>המסלולים הכי עמוקים</h2><div class="seg" role="group" aria-label="משקל מינימלי לקשר">${[3, 5, 8, 12].map((t) => `<button data-t="${t}">משקל ${iso(t)}+</button>`).join('')}</div></div>
+    <p class="muted" style="margin:-4px 0 10px">אל הקורסים של הסמסטר ואל למידה על גרפים: השרשראות הכי ארוכות אחורה בזמן, רק דרך קשרים במשקל שנבחר. החץ: נשען על. לחיצה פותחת מה עבר בכל צעד.</p>
+    <div class="dps"></div>`);
+  el.querySelectorAll('.seg button').forEach((b) => b.onclick = () => { S.depthT = +b.dataset.t; draw(el); });
+  draw(el);
+  return el;
+}
+function conceptView(c) {
+  const out = [];
+  out.push(card('', `<div class="head" style="margin-bottom:6px"><h1>${esc(c.he)}</h1><span class="pill acc">${esc(KIND_HE[c.kd] || c.kd || 'מושג')}</span></div>
+    ${c.en && c.en !== c.he ? `<div class="muted" dir="ltr" style="text-align:right;font-size:14px">${esc(c.en)}</div>` : ''}
+    ${c.st ? `<div class="stmt math" style="font-size:15px">${esc(c.st)}</div>` : '<p class="empty">אין ניסוח במפה</p>'}
+    ${(c.al || []).length ? `<div class="muted" style="margin-top:8px">נקרא גם: ${c.al.filter((x) => !/^[a-z0-9]+(-[a-z0-9]+)+$/.test(x)).map((x) => `<span dir="auto">${esc(x)}</span>`).join(' · ')}</div>` : ''}`));
+  const f = c.fl;
+  const firstHtml = f ? `<div class="item"><div class="h"><b>${courseLabel(f[0])}</b><span class="muted">${semLabel(f)}</span></div><div class="meta" style="font-size:14px">${fileRef(f)}</div></div>`
+    : `<p class="empty">לא ידוע: אין מקום שבו המושג הוגדר${c.places[0] ? `. הוא מופיע לראשונה כשימוש, ב${esc(cname(c.places[0][0]))} ${semLabel(c.places[0])}` : ''}.</p>`;
+  const lv = (c.lv || []).filter((x) => x[1]), unknown = c.courses.filter((k) => !lv.some((x) => x[0] === k));
+  out.push(card('s5', `<div class="head"><h2>איפה למדת לראשונה</h2></div>${firstHtml}
+    <div class="lbl" style="margin:14px 0 6px">הרמה שלך, לפי קורס</div>
+    ${lv.length ? `<div class="chips">${lv.map(([k, l, b]) => `<span class="chip ${esc(l)}" title="${esc(BASIS[b] || b || '')}">${esc(cname(k))}: ${esc(LEVEL[l] || l)}${b ? ` <span style="opacity:.75">(${esc(BASIS[b] || b)})</span>` : ''}</span>`).join('')}</div>` : ''}
+    ${unknown.length ? `<p class="muted" style="margin:${lv.length ? '8px' : '0'} 0 0">${lv.length ? 'בשאר הקורסים' : 'בכל הקורסים'}: לא ידוע (${unknown.map((k) => esc(cname(k))).join(', ')})</p>` : ''}`));
+  const g = card('s7', `<div class="head"><h2>הסביבה של המושג</h2><span class="muted">למעלה: נשען על · למטה: מה שנשען עליו</span></div><div class="cg"></div>`);
+  out.push(g);
+  out.push(card('', `<div class="head"><h2>השורשים</h2><span class="muted">החץ פירושו "נשען על", עד המושגים הבסיסיים. מתחת לכל שלב: איפה למדת אותו</span></div>${rootsHtml(c)}`));
+  const U = c.uses;
+  out.push(card('', `<div class="head"><h2>איפה השתמשת בזה</h2><span class="muted">${iso(U.length)} שימושים · ההגשות שלך קודם</span></div>
+    ${U.length ? `<div class="tis">${U.slice(0, 10).map(useRow).join('')}</div>${U.length > 10 ? details(`עוד ${iso(U.length - 10)}`, `<div class="tis">${U.slice(10).map(useRow).join('')}</div>`, { cls: 'plain' }) : ''}`
+      : '<p class="empty">אין שימושים מתועדים</p>'}`));
+  out.push(card('', `<div class="head"><h2>איפה זה הופיע</h2><span class="muted">${iso(c.places.length)} מקומות, לפי הסדר</span></div>
+    <div class="rows">${c.places.map((p) => row({ badgeHtml: `<div class="badge">${esc(initials(cname(p[0])))}</div>`, name: courseLabel(p[0]),
+      sub: `${p[6] === 'd' ? 'הוגדר' : 'שימוש'} · ${semLabel(p)}<br>${fileRef(p)}`,
+      value: c.fl && p[6] === 'd' && [0, 1, 2, 3, 4].every((i) => p[i] === c.fl[i]) ? '<span class="pill up">ראשון</span>' : '' })).join('')}</div>
+    <p class="muted" style="margin:10px 0 0">בהקלטות: יופיע אחרי התמלול</p>`));
+  const chips = (L) => L.length ? `<div class="chips">${L.map((k) => cchip(KM.by[k].he, k)).join('')}</div>` : '<p class="empty">אין</p>';
+  out.push(card('', `<div class="two"><div><div class="lbl" style="margin-bottom:8px">נשען על (${iso(c.dep.length)})</div>${chips(c.dep)}</div>
+    <div><div class="lbl" style="margin-bottom:8px">מה נשען עליו (${iso(c.rdep.length)})</div>${chips(c.rdep)}</div></div>`));
+  requestAnimationFrame(() => { const box = g.querySelector('.cg'); box.innerHTML = graphSvg(c, box.clientWidth || 600); });
+  return out;
+}
+// The roots: each chain "concept ← what it stands on ← ... ← a basic concept". From the second chain on, the part it
+// shares with the chain above folds into "…" and only the last shared step stays (dimmed), so the branch point shows.
+// Every step links to its concept and says where it was learned.
+function rootsHtml(c) {
+  const chains = (c.rt || []).map((ch) => [c.k, ...ch.map((i) => (KM.concepts[i] || {}).k).filter(Boolean)]);
+  if (!chains.length) return `<p class="empty">${c.dep.length ? 'אין שרשרת שמורה למושג הזה' : 'זה מושג בסיסי: הוא לא נשען על מושג אחר במפה'}</p>`;
+  const step = (k, cls) => { const x = KM.by[k], f = x && x.first;
+    return `<a class="step ${cls}" href="${conceptHref(k)}"><b>${esc(x ? x.he : k)}</b><small>${f ? `${esc(cname(f[0]))} · ${semLabel(f)}` : 'לא ידוע איפה'}</small></a>`; };
+  const arr = '<span class="arr" aria-hidden="true">←</span>';
+  return `<div class="chains">${chains.map((ch, ci) => {
+    const prev = chains[ci - 1] || []; let shared = 0;
+    if (ci) while (shared < ch.length && prev[shared] === ch[shared]) shared++;
+    const from = shared > 1 ? shared - 1 : 0;  // keep the last shared step as the branch point
+    const parts = ch.slice(from).map((k, j) => { const i = from + j; return (j || from ? arr : '') + step(k, `${i === 0 ? 'self' : ''}${i < shared ? ' dim' : ''}`); });
+    return `<div class="chain">${from ? `<span class="step dim more" title="כמו בשרשרת שמעל">…</span>` : ''}${parts.join('')}</div>`; }).join('')}</div>`;
+}
+// one use of the concept: the course, where and how, the note, the file at the page, and where he had learned it
+function useRow(p) {
+  const heavy = p[8] === 3;
+  return `<div class="ti ${heavy ? 'heavy' : ''}"><div class="h"><b>${courseLabel(p[0])}</b><span class="muted">${semLabel(p)} · ${esc(WHERE_HE[p[6]] || p[6] || '')}${HOW_HE[p[7]] ? ' · ' + esc(HOW_HE[p[7]]) : ''}</span>
+      ${heavy ? '<span class="pill up">משקל 3: הגשה שלך</span>' : OWN(p[6]) ? '<span class="pill soft">הגשה שלך</span>' : ''}</div>
+    ${p[10] ? `<div class="txt">${esc(p[10])}</div>` : ''}<div class="meta">${fileRef(p)}${p[9] ? ` · נלמד ב${courseLabel(p[9])}` : ''}</div></div>`;
+}
+// Prerequisites above, the concept in the middle, what builds on it below; every node is a link.
+function graphSvg(c, W) {
+  const per = Math.max(2, Math.min(5, Math.floor(W / 130))), gap = 10, nh = 34, rowGap = 40;
+  const chunk = (L) => { const r = []; for (let i = 0; i < L.length; i += per) r.push(L.slice(i, i + per)); return r; };
+  const pre = c.dep.slice(0, per * 2), post = c.rdep.slice(0, per * 2);
+  const rows = [...chunk(pre).map((r) => ['pre', r]), ['mid', [c.k]], ...chunk(post).map((r) => ['post', r])];
+  const H = rows.length * nh + (rows.length - 1) * rowGap + 4 + (c.dep.length > pre.length || c.rdep.length > post.length ? 18 : 0);
+  const nodes = [], edges = [];
+  let y = 2, mid = null;
+  rows.forEach(([kind, keys]) => {
+    const nw = kind === 'mid' ? Math.min(W - 2 * gap, 320) : (W - (per + 1) * gap) / per;
+    const total = keys.length * nw + (keys.length - 1) * gap;
+    keys.forEach((k, i) => {
+      const x = W - (W - total) / 2 - (i + 1) * nw - i * gap;  // right to left
+      const n = { k, kind, x, y, w: nw };
+      nodes.push(n); if (kind === 'mid') mid = n;
+    });
+    y += nh + rowGap;
+  });
+  nodes.forEach((n) => { if (n.kind === 'pre') edges.push([n.x + n.w / 2, n.y + nh, mid.x + mid.w / 2, mid.y]); if (n.kind === 'post') edges.push([mid.x + mid.w / 2, mid.y + nh, n.x + n.w / 2, n.y]); });
+  const fit = (s, w) => { const m = Math.max(4, Math.floor(w / 7.4)); return s.length > m ? s.slice(0, m - 1) + '…' : s; };
+  const more = [c.dep.length > pre.length ? `ועוד ${c.dep.length - pre.length} למעלה` : '', c.rdep.length > post.length ? `ועוד ${c.rdep.length - post.length} למטה` : ''].filter(Boolean).join(' · ');
+  return `<svg class="cgraph" viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="הסביבה של ${esc(c.he)}">
+    ${edges.map(([x1, y1, x2, y2]) => `<path class="ge" d="M${x1.toFixed(1)},${y1} C${x1.toFixed(1)},${(y1 + y2) / 2} ${x2.toFixed(1)},${(y1 + y2) / 2} ${x2.toFixed(1)},${y2}"/>`).join('')}
+    ${nodes.map((n) => { const name = (KM.by[n.k] || {}).he || n.k; const body = `<rect x="${n.x.toFixed(1)}" y="${n.y}" width="${n.w.toFixed(1)}" height="${nh}" rx="10"/>
+      <text x="${(n.x + n.w / 2).toFixed(1)}" y="${n.y + nh / 2}" text-anchor="middle" dominant-baseline="central">${esc(fit(name, n.w))}</text><title>${esc(name)}</title>`;
+      return n.kind === 'mid' ? `<g class="gn mid">${body}</g>` : `<a class="gn ${n.kind}" href="${conceptHref(n.k)}">${body}</a>`; }).join('')}
+    ${more ? `<text class="more" x="${W / 2}" y="${H - 4}" text-anchor="middle">${esc(more)}</text>` : ''}</svg>${!c.dep.length && !c.rdep.length ? '<p class="empty">למושג הזה אין קשרים במפה</p>' : ''}`;
+}
+// "מושגים שמגיעים מקורסים קודמים / שממשיכים לקורסים אחרים": a course's edges in the knowledge map
+function courseLinksHtml(R) {
+  const b = (R || {}).builds_on || [], u = (R || {}).used_by || [];
+  const item = (x) => { const cur = courseByKey(x.key);
+    return `<div class="kme"><div class="h"><b><a href="#${cur ? 'c:' : 'archive:'}${esc(encodeURIComponent(x.key))}">${esc(x.name)}</a></b><span class="muted">${iso(x.count)} מושגים</span></div>
+      <div class="chips">${(x.examples || []).map((e) => cchip(e.n, e.g)).join('')}</div></div>`; };
+  return `<div class="two"><div><div class="lbl" style="margin-bottom:6px">מגיעים מקורסים קודמים</div>${b.length ? `<div class="kmes">${b.slice(0, 8).map(item).join('')}</div>` : '<p class="empty">אין</p>'}</div>
+    <div><div class="lbl" style="margin-bottom:6px">ממשיכים לקורסים אחרים</div>${u.length ? `<div class="kmes">${u.slice(0, 8).map(item).join('')}</div>` : '<p class="empty">אין</p>'}</div></div>`;
+}
+
+// ---------- the archive ----------
+function gradeCls(g) { const s = String(g || ''); return /F$/.test(s) ? 'down' : /^\d+\*?$/.test(s) && +s.replace('*', '') <= 100 && +s.replace('*', '') >= 56 ? '' : 'muted'; }
+function archive() {
+  const A = D.archive, total = A.semesters.reduce((s, x) => s + x.courses.length, 0);
+  card('', `<div class="head"><h1>ארכיון</h1><span class="muted">${iso(total)} קורסים ב-${iso(A.semesters.length)} סמסטרים</span></div>
+    <p class="muted" style="margin:0">הציון הסופי מגיליון הציונים, הבחינות מסיכום הבחינות. לחיצה על קורס פותחת את הסיכום שלו מבסיס הידע.</p>`);
+  A.semesters.forEach((sem) => {
+    card('', `<div class="head"><h2>${esc(sem.label.replace(/ (\S+)$/, (m, s) => s === 'קיץ' ? ' · קיץ' : ` · סמסטר ${s}`))}</h2><span class="muted">${iso(sem.courses.length)} קורסים</span></div>
+      <div class="rows">${sem.courses.map((x) => archiveRow(x, sem.label)).join('')}</div>`);
+  });
+  if ((A.sheet_only || []).length) card('', `<div class="head"><h2>רק בגיליון הציונים</h2><span class="muted">שורות בלי קורס בקטלוג</span></div>
+    <div class="rows">${A.sheet_only.map((r) => row({ name: esc(r.name), sub: [r.label ? esc(r.label) : 'בלי סמסטר', r.note ? esc(r.note) : '', r.credits ? `${iso(r.credits)} נק״ז` : ''].filter(Boolean).join(' · '),
+      value: `<span class="${gradeCls(r.final_grade)}">${esc(r.final_grade || '—')}</span>` })).join('')}</div>`);
+  if (S.open) { const r = view.querySelector(`.row[data-key="${CSS.escape(S.open)}"]`); if (r) { view.querySelectorAll(`.row[data-key="${CSS.escape(S.open)}"]`).forEach((x) => setExpanded(x, true)); setTimeout(() => r.scrollIntoView({ block: 'center' }), 30); } }
+}
+function archiveRow(x, label) {
+  const K = (D.archive.kb || {})[x.key], R = (D.archive.related || {})[x.key];
+  const exams = (x.exams || []).filter((e) => e.status === 'עבר');
+  const more = `${exams.length ? table(['בחינה', 'תאריך', 'ציון בחינה', 'ציון במועד'], exams.map((e) => [esc(e.type_official || e.type), iso(dfull(e.date)), num(e.exam_grade), num(e.sheet_grade ?? e.final_grade)]), [1, 2, 3]) : '<p class="muted" style="margin:4px 0">אין בחינות מתועדות בהופעה הזו</p>'}
+    ${x.formula_line ? `<div class="txt" style="margin-top:8px">הנוסחה: ${bidi(x.formula_line)}</div>` : ''}
+    ${x.computed_vs_official ? `<div class="txt">${bidi(x.computed_vs_official)}</div>` : ''}
+    ${K ? `<hr class="sep"><div class="lbl">מבסיס הידע${x.taken > 1 ? ' (הסיכום של כל ההופעות של הקורס)' : ''}</div>
+      <div class="txt math" style="margin:4px 0 8px;color:var(--ink)">${esc(K.summary)}</div>
+      <div class="muted">${iso(K.units)} שיעורים · ${iso(K.concepts)} מושגים · חזק ${iso(K.levels.strong)}, בסדר ${iso(K.levels.ok)}, חלש ${iso(K.levels.weak)}</div>
+      ${K.strengths.length || K.weaknesses.length ? `<div class="two" style="margin-top:10px"><div><div class="lbl">חוזקות</div>${K.strengths.map((t) => `<div class="txt math" style="margin:6px 0">• ${esc(t)}</div>`).join('') || '<p class="empty">אין</p>'}</div>
+        <div><div class="lbl">חולשות</div>${K.weaknesses.map((t) => `<div class="txt math" style="margin:6px 0">• ${esc(t)}</div>`).join('') || '<p class="empty">אין</p>'}</div></div>` : ''}
+      ${K.progression ? `<div class="lbl" style="margin-top:10px">התקדמות</div><div class="txt math">${esc(K.progression)}</div>` : ''}
+      ${(K.weak_concepts || []).length ? `<div class="lbl" style="margin:12px 0 6px">מושגים שהיו חלשים</div><div class="chips">${K.weak_concepts.map((w) => cchip(w.n, w.g, 'weak')).join('')}</div>` : ''}` : '<p class="muted">אין סיכום בבסיס הידע</p>'}
+    <hr class="sep"><div class="lbl" style="margin-bottom:8px">העץ שהקורס עומד עליו</div><div class="treebox" data-tree="${esc(x.key)}"></div>
+    ${R && ((R.builds_on || []).length || (R.used_by || []).length) ? `<hr class="sep"><div class="lbl" style="margin-bottom:8px">מושגים שמגיעים מקורסים קודמים / שממשיכים לקורסים אחרים</div>${courseLinksHtml(R)}` : ''}`;
+  const moeds = x.moed_grades ? Object.entries(x.moed_grades).filter(([, v]) => v != null).map(([k, v]) => `${esc(k)}: ${iso(esc(v))}`).join(' · ') : '';
+  const other = (x.other_rows || []).map((r) => `גם ${iso(esc(r.final_grade))}${r.note ? ` (${esc(r.note)})` : ''}`).join(' · ');
+  return row({ badgeHtml: `<div class="badge">${esc(initials(x.name))}</div>`, name: `${esc(x.name)}<span class="chev">▼</span>`, cls: 'click', attrs: `aria-expanded="false" data-key="${esc(x.key)}"`,
+    sub: [x.sheet_name && x.sheet_name !== x.name ? `בגיליון: ${esc(x.sheet_name)}` : '', x.lecturer ? esc(x.lecturer) : '', x.credits ? `${iso(x.credits)} נק״ז` : '', x.note ? esc(x.note) : '', other,
+      x.reinforcement.length ? 'כולל תגבור' : '', x.taken > 1 ? `נלמד ${iso(x.taken)} פעמים` : '', !x.in_sheet ? 'לא בגיליון' : ''].filter(Boolean).join(' · '),
+    value: `<span class="${gradeCls(x.final_grade)}">${x.final_grade ? esc(x.final_grade) : '—'}</span>`, change: moeds, more });
+}
+
+document.addEventListener('DOMContentLoaded', boot);
+</script>
+</body>
+</html>

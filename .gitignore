@@ -1,0 +1,29 @@
+# secrets and tokens: never commit
+secrets/
+*.env
+*.pem
+*.key
+*token*.json
+moodle.json
+.env*
+*_secret*
+cal_token*
+
+# big or private data stays out (Drive holds the files, the server builds the catalog itself)
+catalog/*
+!catalog/courses.json
+site/out/
+site/fixtures/
+kb/scratch/
+__pycache__/
+*.pyc
+*.mp3
+*.m4a
+*.mp4
+*.wav
+*.zip
+*.log
+
+# scratch
+p00*.md
+*_result.txt

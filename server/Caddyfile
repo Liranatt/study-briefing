@@ -1,0 +1,42 @@
+# Liran's study site (container study-web). Installed to ~/study/server/Caddyfile by `setup.sh web`.
+#   /                 ~/study/site (site/build.py --out)
+#   /files/...        the study tree ~/study/cs, read-only (build.py --files-base /files/)
+#   /cal/<secret>.ics the calendar feed, without the password: Google Calendar cannot log in, the name is the secret
+# The password: ~/study/secrets/web/site_auth (setup.sh site-password). While it is missing the site has no
+# password, so the tunnel is not started without it (setup.sh tunnel checks).
+{
+	admin off
+	auto_https off
+}
+
+:80 {
+	header {
+		X-Robots-Tag "noindex, nofollow"
+		Cache-Control "no-store"
+		X-Frame-Options "DENY"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		-Server
+	}
+
+	@feed path_regexp ^/cal/[A-Za-z0-9_-]{20,}\.ics$
+	handle @feed {
+		root * /srv/site
+		header Content-Type "text/calendar; charset=utf-8"
+		file_server
+	}
+
+	handle {
+		# a glob, so a missing file is not an error (setup.sh writes no other file starting with site_auth)
+		import /secrets/site_auth*
+		encode gzip
+		handle_path /files/* {
+			root * /srv/files
+			file_server
+		}
+		handle {
+			root * /srv/site
+			file_server
+		}
+	}
+}
